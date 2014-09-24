@@ -1,0 +1,110 @@
+<%	 if signed_in? %>
+    <%	place = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{@micrositio.referencefb}?fields=picture.width(250),photos,likes,hours,name,posts,location,were_here_count,talking_about_count,description&access_token=#{current_user.oauth_token}").read) %>
+    <div class="col-md-12 col-sm-12 col-xs-12 border" style="margin: 0px 0px 20px 0px" >
+      <div class="row" style="margin-bottom: 10px; padding-top: 20px" >
+        <div class="col-md-5 col-xs-12">
+          <div class="img-responsive">
+            <%	 if place['picture'].nil?  %>
+            <%	else  %>
+                <div class="img-responsive" style="height: 350px; overflow: hidden">
+                  <%= image_tag(place['picture']['data']['url'])   %>
+                </div>
+            <%	end  %>
+          </div>
+        </div>
+        <div class="col-md-7 col-xs-12">
+          <h1> <%= place['name']	  %></h1>
+          <h4> <%= place['location']['street']	  %></h4>
+          <h4> <%= place['location']['city']	  %></h4>
+          <h4> <%= place['location']['country']	  %></h4>
+            <h5> <p style="font-weight: bold; font-size: 16px"> <%= place['were_here_count']  %>   persons where here.</p> </h5>
+            <h5> <p style="font-weight: bold; font-size: 16px"> <%= place['talking_about_count']  %>   are talking about this place.</p> </h5>
+            <h5> <p style="font-weight: bold; font-size: 16px"> <%= place['likes']  %>  likes in Facebook.</p> </h5>
+          <div class="col-md-6" style="padding-top: 40px">
+            <%= render 'follow_form' if signed_in? %>
+            <br/>
+
+
+                    <%= form_for(@reservation) do |f| %>
+                        <%= f.hidden_field :micrositio_id, value: @micrositio.id %>
+                        <%= f.submit "Reserve", class: "btn-success" %>
+                    <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 border" style="margin-bottom: 15px">
+          <div class="row">
+            <div class="col-md-8 col-xs-12">
+
+                <h2>Description</h2>
+                <p> <%= place['description']	  %></p>
+            </div>
+            <div class="col-md-4 col-xs-12">
+
+              <%	 if place['hours'].nil?  %>
+              <%	else  %>
+              <h2>Hours</h2>
+             <% place['hours'].each do |x|  %>
+             <%= x  %>
+                  <br/>
+             <% end %>
+             <% end %>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 border" style="margin-bottom: 15px">
+    <div class="row" style="margin-top: 20px">
+            <div class="col-md-5 col-xs-12">
+                  <%	 if place['photos'].nil?  %>
+                  <%	else  %>
+                      <h2>Recently photos</h2>
+                      <br/>
+                          <% place['photos']['data'].first(4).each do |x|  %>
+                      <div class="row">
+                              <div class="img-responsive" style="overflow: hidden">
+                                <%	 if x['source'].nil?  %>
+                                <%	 else %>
+                                    <%= image_tag(x['source'], class: "micrositiophotos")  %>
+                                <%	 end %>
+                              </div>
+                      </div>
+                          <%	 end %>
+                  <%	 end %>
+            </div>
+            <div class="col-md-7 col-xs-12">
+              <%	 if place['posts'].nil?  %>
+              <%	else  %>
+                  <h2>Posts</h2>
+              <% place['posts']['data'].first(6).each do |x|  %>
+                  <div class="row">
+                     <div class="col-md-4 col-xs-4">
+                       <div class="img-responsive" style="overflow: hidden; height: 100px">
+                        <%= image_tag(x['picture'], class: "micrositiopostphotos")  %>
+                       </div>
+                     </div>
+                    <div class="col-md-8 col-xs-8">
+                      <%= x['message']  %>
+                    </div>
+                  </div>
+                   <hr/>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 border" >
+      <div class="fb-comments" data-href="<%=request.original_url%>" data-numposts="10" data-width= "280"></div>
+    </div>
+<% else %>
+    <%=	 render "shared/ingresa" %>
+<% end %>
+
+
+
+
+
+
+

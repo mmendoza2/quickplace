@@ -1,0 +1,24 @@
+
+<% @users.limit(10).order("RANDOM()").each do |x| %>
+    <div class="thumbnail">
+      <div class="caption">
+
+        <div>
+          <% if x.photo_file_name.blank?  %>
+              <% if x.avatar.blank?  %>
+                  <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarmedio"), x %>
+              <%	 else %>
+                  <%= link_to image_tag(x.avatar, class: "avatarmedio" ), x%>
+              <% end %>
+          <% else %>
+              <%= link_to image_tag(x.photo.url(:medium), class: "avatarmedio"), x %>
+          <%	 end %>
+        </div>
+        <h4><%= x.name %></h4>
+        <p>es nuevo usuario  </p>
+
+
+      </div>
+    </div>
+<% end %>
+

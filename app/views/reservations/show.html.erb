@@ -1,0 +1,18 @@
+
+<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-8 col-xs-offset-2">
+
+<%= form_for(@reservation) do |f| %>
+
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+
+    <%= f.label "Hour" %>
+    <%= f.time_select :hour %>
+
+    <%= f.label "Number of persons" %>
+    <%= f.text_field :number %>
+
+
+    <%= f.submit "Reserve", class: "btn-success" %>
+<% end %>
+</div>

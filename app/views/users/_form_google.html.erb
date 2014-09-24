@@ -1,0 +1,34 @@
+<%= form_for(current_user) do |f| %>
+
+<fieldset>
+  <div class="row">
+
+    <div class="col-md-5 ">
+      <div class="control-group">
+        <%= f.label :lat, class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :lat, class: "col-md-12" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :lng, class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :lng, class: "col-md-12" %>
+        </div>
+      </div>
+      <div class="control-group pull-right">
+        <%= f.submit "Save Location", class: 'btn' %>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+
+      <div class="control-group">
+        <%= label_tag :search, "Search For Address" %>
+        <%= text_field_tag :location_search, nil, class: "col-md-12 search-query", type: "search" %>
+      </div>
+      <%= render partial: "users/googlemap" %>
+    </div>
+  </div>
+</fieldset>
+<% end %>

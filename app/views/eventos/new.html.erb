@@ -1,0 +1,86 @@
+
+<script>
+    $(document).ready(function(){
+
+
+        $('#project_status').change(function(){
+            if($(this).val() != "In Progress"){
+                $("#project_capital_cost").attr('disabled','disabled');
+            }
+            else{
+                $("#project_capital_cost").removeAttr('disabled');
+            }
+        })
+    });
+
+</script>
+
+
+<% if signed_in?   %>
+    <% if current_user.editor? or current_user.admin?  %>
+
+
+    <h1>Nuevo Evento</h1>
+
+      <div class="row">
+        Como
+      </div>
+
+      <div class="row">
+         Cada nuevo evento debe de estar ligado con un micrositio. Porfavor selecciona el micrositio donde será el evento. Si no existe ayudanos creándolo.
+      </div>
+
+
+    <div class="row">
+      <div id="formrow">
+
+        <%= form_for(@evento, :html => { :multipart => true }) do |f| %>
+
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.label :estado_id %><br />
+            <%= f.collection_select :estado_id, Estado.order(:estado), :id, :estado, id: "estadoselect"  %>
+
+
+            <%= f.label :nombre %>
+            <%= f.text_field :nombre %>
+
+            <%= f.label :descripcion %>
+            <%= f.text_area :descripcion %>
+
+            <%= f.label :imagen %>
+            <%= f.file_field :photo %>
+
+
+            <%= f.label :artista %>
+            <%= f.text_field :artista %>
+
+            <%= f.label :precio %>
+            <%= f.text_field :precio %>
+
+            <%= f.label :"Página Web Oficial" %>
+            <%= f.text_field :urloficial %>
+
+
+
+
+            <%= f.label :fecha %>
+            <%= f.date_select :fecha %>
+
+            <%= f.submit "Sube tu evento", class: "btn btn-large btn-primary" %>
+
+        <% end %>
+
+
+      </div>
+    </div>
+
+    <%	 else %>
+
+       <h2>Necesitas permisos para poder crear eventos</h2>
+        <%=	 link_to "o puedes ver como promocionarte aquí", promocionate_path %>
+    <%	 end %>
+<%	 else %>
+    <%=	 render "shared/ingresa" %>
+
+<%	 end %>

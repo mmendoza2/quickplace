@@ -1,0 +1,49 @@
+
+
+
+
+<% if signed_in?   %>
+
+    <%=	 render "shared/googlepin" %>
+
+
+<div class="col-md-10">
+
+    <%= form_for(@micrositio, :html => { :multipart => true }) do |f| %>
+
+        <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="col-md-12">  <p>Ubicación del lugar</p></div>
+      <div id="map-canvas" class="thumbnail col-md-12" style="height: 200px"></div>
+      <div id="latlong">
+        <div> <%= f.text_field :lat, class: 'input-sm', id: 'latbox' %></div>
+        <div> <%= f.text_field :lng, class: 'input-sm', id: 'lngbox' %></div>
+      </div>
+
+        <%= f.label :actividad_id %>
+        <%= f.collection_select :actividad_id, Actividad.all, :id, :name  %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :descripcion %>
+        <%= f.text_area :descripcion %>
+
+        <%= f.label :imagen %>
+        <%= f.file_field :photo %>
+
+
+        <%= f.submit "Sube tu lugar", class: "btn btn-large btn-primary" %>
+
+    <% end %>
+
+</div>
+
+<%	 else %>
+    <%=	 render "shared/ingresa" %>
+
+<%	 end %>
+
+
+
+

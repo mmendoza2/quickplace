@@ -1,0 +1,172 @@
+
+<%	 if signed_in? %>
+  <div class="hidden-xs" id="googlemaps">
+    <div id="map-canvas" ></div>
+  </div>
+    <div class="col-md-6 col-sm-9 col-xs- transparent border hidden-xs" style="z-index: 10" >
+        <div class="col-md-10 col-sm-10 col-xs-12" style="margin-bottom: 20px;  z-index: 1">
+          <div class="row" style="background-color: #593e73; border-radius: 5px; padding: 15px;  margin-top: -10px; ">
+            <div class="col-md-12 col-sm-12 hidden-xs">
+              <h1 style="color: #ffffff; font-size: 18px"><%=	@actividad.slug.capitalize %> </h1>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <div class="nav navbar-fixed-top visible-xs " style="margin-top: 60px" >
+      <div class="col-md-offset-2 col-md-5 col-sm-5 col-xs-12" style="margin-bottom: 20px; z-index: 1">
+        <div class="row" style="background-color: #593e73; border-radius: 5px; padding: 15px;  margin-top: -10px; ">
+          <div class="col-md-12 col-sm-12 hidden-xs">
+            <h1 style="color: #ffffff"><%=	@actividad.slug.capitalize %> </h1>
+          </div>
+          <div class="visible-xs col-xs-6">
+            <h1 style="color: #ffffff; font-size: 16px"><%=	@actividad.slug.capitalize %> </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="transparent hidden-xs" style="height: 80px" ></div>
+    <div class="transparent visible-xs" style="height: 35px" ></div>
+
+    <div class="col-md-5 col-sm-8 col-xs-12 border transparent" style="z-index: 10" >
+    <%	fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@actividad.namefb},page&fields=cover,checkins,name,location,likes,category_list,picture.width(80)&type=place&center=#{current_user.lat},#{current_user.lng}&distance=15000&access_token=#{current_user.oauth_token}&limit=30").read) %>
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom: 1px solid #d3d6db; " >
+          <% fbplace['data'].each do |result| %>
+            <%	 if result.nil? %>
+                  <div class="row" style="height: 200px">
+                    <p>There are no place around here, please try another location.</p>
+                  </div>
+            <%	 else %>
+                <div id="lista" class="row" style="margin-bottom: -25px; margin-top: -20px; border-bottom:1px solid #d3d6db; ">
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-md-12" style="margin-left: -25px;">
+                    <%	 if result['picture'].nil?  %>
+                    <%	else  %>
+                        <div class="img-responsive" style="width: 80px;">
+                          <%=  image_tag(result['picture']['data']['url']) %>
+                        </div>
+                    <%	end  %>
+                    </div>
+                    <div class="col-md-12">
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-8 col-xs-8" style="padding: 0 !important;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0 !important; text-align: center ">
+                          <%= form_for(@micrositio) do |f| %>
+                              <%= f.hidden_field :name, value: result['name'] %>
+                              <%= f.hidden_field :referencefb, value: result['id'] %>
+                              <%= f.hidden_field :lat, value: result['location']['latitude'] %>
+                              <%= f.hidden_field :lng, value: result['location']['longitude'] %>
+                              <%	 if result['picture'].nil?  %>
+                              <%	else  %>
+                                  <%= f.hidden_field :photo_file_name, value: result['picture']['data']['url'] %>
+                              <% end %>
+                              <%= f.submit result['name'], class: "btn-success btn-sm btn" %>
+                          <% end %>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
+                        <p>   <%= result['likes']  %> likes</p>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: right">
+                        <p>   distance:
+                          <%
+                             lat1 = current_user.lat
+                             lon1 = current_user.lng
+                             lat2 = result['location']['latitude']
+                             lon2 = result['location']['longitude']
+                             r = 6371
+                             pi = 3.1416
+                             alpha1 = (lat1 * pi).to_f / 180.0
+                             alpha2 = (lat2 * pi).to_f / 180.0
+                             deltaa = (lat2.to_f-lat1.to_f) * pi / 180.0
+                             deltag = (lon2.to_f-lon1.to_f) * pi / 180.0
+                             a = Math.sin(deltaa.to_f/2.0) * Math.sinh(deltaa.to_f/2.0) +
+                                     Math.cos(alpha1) * Math.cos(alpha2) *
+                                             Math.sin(deltag/2) * Math.sin(deltag/2)
+                             c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+                             d = r * c
+                             f = d.round(2)
+                          %>
+                          <%=	 f %>       Km
+                        </p>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: left">
+                         <p> <%= number_with_delimiter(result['checkins']) %> peple have been here </p>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
+                          <p style="font-size: 10px"><%= result['location']['city'] %></p>
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12" style="text-align: left">
+                         <p> Type of music: </p>
+                        </div>
+                        <div class="col-md-8 col-lg-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-1" style="padding: 0 !important; text-align: center">
+                         <p>   Friends attending today:</p>
+                        </div>
+
+
+
+
+
+                  </div>
+
+                </div>
+                  <hr/>
+             <%	 end %>
+        <%	 end %>
+        </div>
+
+    </div>
+    <div class="col-md-7">
+    </div>
+    <script>
+        $(document).ready(function () {
+            var myLatlng = new google.maps.LatLng(<%= current_user.lat %>,<%= current_user.lng %>);
+            var mapOptions = {
+                zoom: 11,
+                center: myLatlng,
+                scrollwheel: false,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                mapTypeControl: false,
+                panControl: false,
+                rotateControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                zoomControl: false
+
+            }
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            for (var i = 0; i < pins.length; i++) {
+                setTimeout(function() {
+                    addMarker();
+                }, i * 200);
+            }
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map
+            });
+
+            function addMarker() {
+                markers.push(new google.maps.Marker({
+                    position: neighborhoods[iterator],
+                    map: map,
+                    draggable: false,
+                    animation: google.maps.Animation.DROP
+                }));
+                iterator++;
+            }
+
+        });
+    </script>
+
+<% else %>
+    <%=	 render "shared/ingresa" %>
+<% end %>
+
+
+
+

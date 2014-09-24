@@ -1,0 +1,27 @@
+<ul >
+
+  <%	@users = User.all  %>
+  <% @users.limit(15).order("RANDOM()").each do |x| %>
+
+      <li style="font-size: 11px; margin-left: -25px; margin-bottom: 10px; ">
+
+        <div class="row" style="border-bottom: solid 1px; border-color: #aeaeae;">
+            <div class="col-md-4">
+              <% if x.photo_file_name.blank?  %>
+                  <% if x.avatar.blank?  %>
+                      <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchiquitito"), x %>
+                  <%	 else %>
+                      <%= link_to image_tag(x.avatar, class: "avatarchiquitito" ), x%>
+                  <% end %>
+              <% else %>
+                  <%= link_to image_tag(x.photo.url(:medium), class: "avatarchiquitito"), x %>
+              <%	 end %>
+            </div>
+            <div class="col-md-8">
+              <p><%= x.name  %> es nuevo usuario  </p>
+            </div>
+        </div>
+      </li>
+
+  <% end %>
+</ul>

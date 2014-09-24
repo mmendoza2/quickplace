@@ -1,0 +1,28 @@
+<header id="header" class="site-header">
+  <div class="container">
+      <div class="col-md-12">
+            <div class="text-center" style="margin-top: 100px">
+              <br>
+              <h2 style="color: #ffffff; font-weight: 100; font-size: 40px" >Welcome to QuickPlace</h2>
+              <br>
+              <% [:notice, :error, :alert].each do |level| %>
+                  <% unless flash[level].blank? %>
+                      <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                        <a class="close" href="#">×</a>
+                        <%= content_tag :p, flash[level] %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+            <section>
+              <div class="text-center  ">
+                  <i class="icon-facebook-sign"></i>  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+              </div>
+            </section>
+      </div><!-- /span12 -->
+  </div><!-- /container -->
+</header>
+
+
+
+

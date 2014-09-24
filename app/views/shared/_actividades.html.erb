@@ -1,0 +1,52 @@
+
+      <% @actividades.limit(20).order("RANDOM()").each do |x| %>
+            <%  x.followers.limit(10).order("RANDOM()").each do |y|  %>
+                      <li class="thumbnail">
+                        <div class="caption">
+                                        <% if y.photo_file_name.blank?  %>
+                                            <% if y.avatar.blank?  %>
+                                                <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), y %>
+                                            <%	 else %>
+                                                <%= link_to image_tag(y.avatar, class: "avatarchico" ), y %>
+                                            <% end %>
+                                        <% else %>
+                                            <%= link_to image_tag(y.photo.url(:square), class: "avatarchico"), y %>
+                                        <%	 end %>
+
+
+
+                        </div>
+                        <h4><%= y.name %></h4>
+                        <p>ahora está siguiendo a <%= x.actividad %>  </p>
+                        <% x.micrositios.take(1).each do |estado| %>
+                            <% if estado.photo_file_size? %>
+                                <%= link_to (image_tag estado.photo.url(:small), class: "img-responsive", alt: x ), estado%>
+                                <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+                            <% else %>
+                                <%= link_to (image_tag "https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/#{estado.photo_file_name}", class: "img-responsive nomargin", alt: x), estado %>
+                                <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+                            <% end %>
+                        <% end %>
+                        <h3><%= x.actividad %></h3>
+                        <p>...</p>
+                      </li>
+
+            <% end %>
+      <% end %>
+
+<% @actividades.limit(5).order("RANDOM()").each do |x| %>
+
+    <li class="thumbnail">
+        <div class="caption">
+            <% x.micrositios.take(1).each do |estado| %>
+                <% if estado.photo_file_size? %>
+                    <%= link_to (image_tag estado.photo.url(:medium), class: "img-responsive", alt: x), estado %>
+                    <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+                <% else %>
+                    <%= link_to (image_tag "https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/#{estado.photo_file_name}", class: "img-responsive", alt: x ), estado%>
+                    <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+                <% end %>
+            <% end %>
+        </div>
+    </li>
+<% end %>

@@ -1,0 +1,60 @@
+
+
+<div class="col-md-3 hidden-xs hidden-sm">  <% if @user.photo_file_name.blank?  %>
+      <% if @user.avatar.blank?  %>
+          <%=  image_tag "http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatargrande" %>
+      <%	 else %>
+          <%= image_tag @user.avatar, class: "avatargrande" %>
+      <% end %>
+  <% else %>
+      <%=  image_tag @user.photo.url(:medium), class: "avatargrande"%>
+  <%	 end %>
+  <h4><%= @user.name %></h4>
+</div>
+
+
+
+<div class="col-md-9 col-xs-12" style="margin-bottom: 20px; margin-top: 20px">
+  <%	 if current_user.reservations.nil? %>
+
+  <%	 else %>
+      <div class="row" style="margin-top: 10px">
+        <h1 class="col-md-offset-4" style="margin-top: -15px">Reservations</h1>
+        <% current_user.reservations.each do |x| %>
+        <%	 end %>
+
+      </div>
+  <%	 end %>
+</div>
+
+<div class="col-md-9 col-xs-12  ">
+
+     <div class="row" style="margin-top: 10px">
+      <h1 class="col-md-offset-4" style="margin-top: -15px">Favorites Places</h1>
+      <hr/>
+      <ul>
+      <%	current_user.followed_micrositios.each do |x|  %>
+         <li>
+           <div class="row">
+             <div class="col-md-4">
+                 <%= link_to x.name, x %>
+             </div>
+             <div class="col-md-8">
+
+                 <%	 if x.reference.nil?  %>
+                  <%=	image_tag(x.photo_file_name, :class => "img-responsive") %>
+                 <% else  %>
+                  <%= image_tag("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{x.photo_file_name}&sensor=true&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs", :class => "img-responsive")	  %>
+                 <% end  %>
+
+             </div>
+           </div>
+        </li>
+        <% end  %>
+      </ul>
+     </div>
+</div>
+
+<div>
+</div>
+

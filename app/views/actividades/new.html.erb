@@ -1,0 +1,25 @@
+<h1>New actividad</h1>
+
+
+<%= form_for(@actividad, :html => { :multipart => true }) do |f| %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :namefb %>
+    <%= f.text_field :namefb %>
+
+    <%= f.label :namegoogle %>
+    <%= f.text_field :namegoogle %>
+
+
+
+
+    <%= f.submit "Sube tu actividad", class: "btn btn-large btn-primary" %>
+
+<% end %>
+
+<%= link_to 'Back', actividades_path %>

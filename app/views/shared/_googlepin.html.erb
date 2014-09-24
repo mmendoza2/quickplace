@@ -1,0 +1,27 @@
+
+<script type="text/javascript">
+    function initialize() {
+
+        var myLatlng = new google.maps.LatLng(23.634501,-102.55278399999997);
+        var mapOptions = {
+            zoom: 4,
+            center: myLatlng,
+        }
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        // Place a draggable marker on the map
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            draggable:true,
+            title:"Your location!"
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("latbox").value = this.getPosition().lat();
+            document.getElementById("lngbox").value = this.getPosition().lng();
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+

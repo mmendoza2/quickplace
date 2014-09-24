@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <%=	 render "layouts/header2" %>
+
+
+</head>
+
+<body  style="background-color: #e9eaed">
+<% if signed_in? 	  %>
+    <div id="wrapper">
+      <div class="hidden-xs">
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <div class="visible-xs" style="margin-top: 95px">
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <div class="hidden-xs">
+          <%= render 'layouts/topbar' %>
+        </div>
+        <div class="visible-xs">
+          <%= render 'layouts/topbarxs' %>
+        </div>
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset" >
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="col-sm-offset-1 col-sm-10 col-xs-10" style="margin-top: 5px; margin-bottom: 5px">
+              <% [:notice, :error, :alert].each do |level| %>
+                  <% unless flash[level].blank? %>
+                      <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                        <a class="close" href="#">×</a>
+                        <%= content_tag :p, flash[level] %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("active");
+        });
+    </script>
+<%  else %>
+    <div id="wrapper">
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <%= render 'layouts/sidebarlogout' %>
+        <div class="hidden-xs">
+          <%= render 'layouts/topbarlogout' %>
+        </div>
+        <div class="visible-xs">
+          <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+        </div>
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+          <div class="col-md-10 col-sm-12 col-lg-10">
+            <div class="col-sm-offset-1 col-sm-10 col-xs-10" style="margin-top: 5px; margin-bottom: 5px">
+              <% [:notice, :error, :alert].each do |level| %>
+                  <% unless flash[level].blank? %>
+                      <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                        <a class="close" href="#">×</a>
+                        <%= content_tag :p, flash[level] %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("active");
+        });
+    </script>
+<% end %>
+
+
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+
+
+
+  <div class="col-md-12">
+    <ul class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="padding: 0px">
+      <% @estadosalf.first(11).each do |estado| %>
+          <li class="thumbnail" style="overflow: hidden">
+                <%  estado.micrositios.take(1).each do |f| %>
+                    <% if f.photo_file_size? %>
+                      <li class="inline list-group">
+                        <%= link_to f.name, f %>
+                        <%= link_to image_tag(f.photo.url(:medium)), f %>
+                      </li>
+                  <% else %>
+                      <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="500px" style="overflow: hidden"  >
+                  <% end %>
+                <% end %>
+              <div class="caption">
+                <h3><%= link_to estado.estado, estado %> </h3>
+                <div class="row">
+                  <div class="col-md-3">
+
+                  </div>
+                  <div class="col-md-12">
+                    <p style="height: 100px; overflow: hidden">
+                      <%=  estado.descripcion %>
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div id="follow_form" >
+                      <% if current_user.followingestado?(estado) %>
+                          <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                              <%= f.submit "Siguiendo", class: "btn " %>
+                          <% end %>
+                      <% else %>
+                          <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                              <div><%= f.hidden_field :followed_id %></div>
+                              <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="col-md-4 estadocontador">
+                    <%= estado.followers.count%>
+                    Usuarios
+                  </div>
+                </div>
+              </div>
+          </li>
+      <% end  %>
+    </ul>
+
+    <ul class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="padding: 0px">
+      <% @estadosalf.find([12,13,14,15,16,17,18,19,20,21]).each do |estado| %>
+          <li class="thumbnail">
+            <%  estado.micrositios.take(1).each do |f| %>
+                <% if f.photo_file_size? %>
+                  <li class="inline list-group">
+                    <%= link_to f.name, f %>
+                    <%= link_to image_tag(f.photo.url(:medium)), f %>
+                  </li>
+              <% else %>
+                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="500px" style="overflow: hidden"  >
+              <% end %>
+          <% end %>
+          <div class="caption">
+            <h3><%= link_to estado.estado, estado %> </h3>
+            <div class="row">
+              <div class="col-md-3">
+
+              </div>
+              <div class="col-md-12">
+                <p style="height: 100px; overflow: hidden">
+                  <%=  estado.descripcion %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div id="follow_form" >
+                  <% if current_user.followingestado?(estado) %>
+                      <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                          <%= f.submit "Siguiendo", class: "btn " %>
+                      <% end %>
+                  <% else %>
+                      <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                          <div><%= f.hidden_field :followed_id %></div>
+                          <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                      <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-4 estadocontador">
+                <%= estado.followers.count%>
+                Usuarios
+              </div>
+            </div>
+          </div>
+          </li>
+      <% end  %>
+    </ul>
+    <ul class="col-md-4 col-lg-4 col-sm-4 col-xs-12" style="padding: 0px">
+      <% @estadosalf.last(11).each do |estado| %>
+          <li class="thumbnail">
+            <%  estado.micrositios.take(1).each do |f| %>
+                <% if f.photo_file_size? %>
+                  <li class="inline list-group">
+                    <%= link_to f.name, f %>
+                    <%= link_to image_tag(f.photo.url(:medium)), f %>
+                  </li>
+              <% else %>
+                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="500px" style="overflow: hidden"  >
+              <% end %>
+          <% end %>
+          <div class="caption">
+            <h3><%= link_to estado.estado, estado %> </h3>
+            <div class="row">
+              <div class="col-md-3">
+
+              </div>
+              <div class="col-md-12">
+                <p style="height: 100px; overflow: hidden">
+                  <%=  estado.descripcion %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div id="follow_form" >
+                  <% if current_user.followingestado?(estado) %>
+                      <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                          <%= f.submit "Siguiendo", class: "btn " %>
+                      <% end %>
+                  <% else %>
+                      <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                          <div><%= f.hidden_field :followed_id %></div>
+                          <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                      <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-4 estadocontador">
+                <%= estado.followers.count%>
+                Usuarios
+              </div>
+            </div>
+          </div>
+          </li>
+      <% end  %>
+    </ul>
+
+
+
+  </div>
+
+
+

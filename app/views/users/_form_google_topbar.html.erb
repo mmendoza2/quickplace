@@ -1,0 +1,22 @@
+
+<%= form_for(current_user) do |f| %>
+<div class="col-md-12 col-sm-6">
+    <fieldset>
+        <div>
+            <%= f.hidden_field :lat, class: "col-md-12 col-sm-12", id: "lat" %>
+            <%= f.hidden_field :lng, class: "col-md-12 col-sm-12", id: "lng" %>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <%= text_field_tag :location_search, nil, class: "col-md-12 col-sm-12 search-query btn-sm", type: "search" %>
+            <%= render partial: "users/googlemap" %>
+        </div>
+        <div class="col-md-2 col-sm-2" style="margin-left: -25px; padding-top: 5px" >
+            <%= button_tag(type: 'submit', class: 'transparent') do %>
+                <i class="fa fa-2x fa-search" ></i>
+            <% end %>
+        </div>
+    </fieldset>
+</div>
+<% end %>
+
+
