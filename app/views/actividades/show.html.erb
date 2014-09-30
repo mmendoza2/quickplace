@@ -32,7 +32,17 @@
     <%	fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@actividad.namefb},page&fields=cover,checkins,name,location,likes,category_list,picture.width(80)&type=place&center=#{current_user.lat},#{current_user.lng}&distance=15000&access_token=#{current_user.oauth_token}&limit=30").read) %>
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom: 1px solid #d3d6db; " >
           <% fbplace['data'].each do |result| %>
-            <%	 if result.nil? %>
+
+
+              <%
+                 conn = PG.connect(:dbname => 'db1')
+                 conn.prepare('statement1', 'insert into table1 (id, name, profile) values ($1, $2, $3)')
+                 conn.exec_prepared('statement1', [ 11, 'J.R. "Bob" Dobbs', 'Too much is always better than not enough.' ])
+
+              %>
+
+
+              <%	 if result.nil? %>
                   <div class="row" style="height: 200px">
                     <p>There are no place around here, please try another location.</p>
                   </div>

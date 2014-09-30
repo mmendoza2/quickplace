@@ -7,24 +7,10 @@ class User < ActiveRecord::Base
   validate :lat, presence: true
 
   has_many :reservations
-
   has_many :micrositios
   has_many :microposts
   has_many :eventos
   has_many :authorizations
-
-
-  has_many :relationcategorias, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_categorias, through: :relationcategorias, source: :followed
-
-    has_many :relationactividadespadre, foreign_key: "follower_id", dependent: :destroy
-    has_many :followed_actividadespadre, through: :relationactividadespadre, source: :followed
-
-  has_many :relationactividades, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_actividades, through: :relationactividades, source: :followed
-
-      has_many :relationestados, foreign_key: "follower_id", dependent: :destroy
-      has_many :followed_estados, through: :relationestados, source: :followed
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_eventos, through: :relationeventos, source: :followed
@@ -91,14 +77,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-    block_given? ? yield(@facebook) : @facebook
-  rescue Koala::Facebook::APIError => e
-    logger.info e.to_s
-    nil # or consider a custom null object
-  end
-
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -146,45 +124,6 @@ class User < ActiveRecord::Base
     relationmicrositios.find_by(followed_id: other_user.id).destroy!
   end
 
-      def followingactividad?(other_user)
-        relationactividades.find_by(followed_id: other_user.id)
-      end
-      def followactividad!(other_user)
-        relationactividades.create!(followed_id: other_user.id)
-      end
-      def unfollowactividad!(other_user)
-        relationactividades.find_by(followed_id: other_user.id).destroy!
-      end
-
-  def followingestado?(other_user)
-    relationestados.find_by(followed_id: other_user.id)
-  end
-  def followestado!(other_user)
-    relationestados.create!(followed_id: other_user.id)
-  end
-  def unfollowestado!(other_user)
-    relationestados.find_by(followed_id: other_user.id).destroy!
-  end
-
-      def followingactividadpadre?(other_user)
-        relationactividadespadre.find_by(followed_id: other_user.id)
-      end
-      def followactividadpadre!(other_user)
-        relationactividadespadre.create!(followed_id: other_user.id)
-      end
-      def unfollowactividadpadre!(other_user)
-        relationactividadespadre.find_by(followed_id: other_user.id).destroy!
-      end
-
-  def followingcategoria?(other_user)
-    relationcategorias.find_by(followed_id: other_user.id)
-  end
-  def followcategoria!(other_user)
-    relationcategorias.create!(followed_id: other_user.id)
-  end
-  def unfollowcategoria!(other_user)
-    relationcategorias.find_by(followed_id: other_user.id).destroy!
-  end
 
 
 

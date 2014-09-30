@@ -1,3 +1,0 @@
-<%= form_for(current_user.relationcategorias.find_by(followed_id: @categoria), html: { method: :delete }, remote: true) do |f| %>
-    <%= f.submit "No seguir", class: "btn btn-large" %>
-<% end %>

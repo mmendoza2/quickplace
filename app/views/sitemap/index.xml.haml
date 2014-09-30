@@ -1,8 +1,0 @@
-!!! XML
-%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
-  - for micrositio in @micrositios
-    %url
-      %loc #{micrositio_url(micrositio)}
-      %lastmod=micrositio.created.strftime('%Y-%m-%d')
-      %changefreq monthly
-      %priority 0.5

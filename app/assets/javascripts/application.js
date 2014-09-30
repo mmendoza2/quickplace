@@ -15,8 +15,7 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require modernizr.custom.97792
-//= require bootstrap.min
+//= require bootstrap
 //= require_tree .
 
 
