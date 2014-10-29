@@ -14,8 +14,6 @@ class MicrositiosController < ApplicationController
   def show
     @micrositios = Micrositio.all
     @micrositio = Micrositio.friendly.find(params[:id])
-    @user = Micrositio.friendly.find(params[:id])
-    @reservation = Reservation.new
   end
 
   # GET /micrositios/new
@@ -30,12 +28,11 @@ class MicrositiosController < ApplicationController
   # POST /micrositios
   # POST /micrositios.json
   def create
-    @micrositio = current_user.micrositios.find_or_create_by(micrositio_params)
+    @micrositio = Micrositio.find_or_create_by(micrositio_params)
     respond_to do |format|
       if @micrositio.save
-        format.html { redirect_to @micrositio }
+        format.html { redirect_to @micrositio, notice: '¡El Micrositio fue creado exitosamente!.' }
         format.json { render action: 'show', status: :created, location: @micrositio }
-        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @micrositio.errors, status: :unprocessable_entity }
@@ -48,7 +45,7 @@ class MicrositiosController < ApplicationController
   def update
     respond_to do |format|
       if @micrositio.update(micrositio_params)
-        format.html { redirect_to @micrositio}
+        format.html { redirect_to @micrositio, notice: 'Micrositio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -78,9 +75,9 @@ class MicrositiosController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def micrositio_params
-      params.require(:micrositio).permit(:name,  :descripcion, :photo, :reference, :actividad_id, :lat, :lng, :referencefb, :photo_file_name)
-    end
+  def micrositio_params
+    params.require(:micrositio).permit(:name,  :descripcion, :photo, :reference, :actividad_id, :lat, :lng, :referencefb, :photo_file_name)
+  end
 
 
 

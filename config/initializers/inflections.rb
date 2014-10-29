@@ -10,7 +10,6 @@
 #   inflect.uncountable %w( fish sheep )
 
    inflect.irregular 'actividad', 'actividades'
-   inflect.irregular 'actividadpadre', 'actividadespadre'
    inflect.irregular 'imagen', 'imagenes'
    inflect.irregular 'categoria', 'categorias'
 

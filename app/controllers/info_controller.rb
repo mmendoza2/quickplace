@@ -11,7 +11,7 @@ class InfoController < ApplicationController
   def contacto
   end
 
-  def terminos
+  def terms
   end
 
   def promocionate

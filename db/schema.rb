@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140721162955) do
     t.string   "slug"
     t.string   "namefb"
     t.string   "namegoogle"
+    t.integer  "loc_id"
   end
 
   add_index "actividades", ["slug"], name: "index_actividades_on_slug", using: :btree
@@ -44,44 +45,47 @@ ActiveRecord::Schema.define(version: 20140721162955) do
     t.datetime "updated_at"
   end
 
-
   create_table "eventos", force: true do |t|
-    t.string   "nombre"
-    t.string   "descripcion"
-    t.datetime "fecha"
-    t.string   "photo"
-    t.string   "urloficial"
-    t.string   "artista"
-    t.string   "entradatipo"
-    t.string   "precio"
-    t.integer  "votos"
-    t.string   "ranking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "slug"
-    t.string   "diaevento"
-    t.string   "estado"
-    t.string   "poblacion"
-    t.integer  "principal"
-    t.integer  "fechainicio"
-    t.integer  "fechafin"
-    t.integer  "mes"
-    t.integer  "dia"
-    t.integer  "actividad"
-    t.string   "fotografia"
-    t.integer  "institucion"
-    t.integer  "user_id"
-    t.integer  "estado_id"
-    t.integer  "actividad_id"
+    t.integer  "uid", :limit => 8
+    t.string    "name"
+    t.text     "description"
+    t.timestamp "fecha",              precision: 6
+    t.string    "urloficial"
+    t.string    "artista"
+    t.string    "entradatipo"
+    t.string    "precio"
+    t.string    "ranking"
+    t.integer  "hits"
+    t.text     "imagen"
+    t.text     "lugar"
+    t.text     "city"
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.datetime  "photo_updated_at"
+    t.string    "slug"
+    t.integer   "fechainicio"
+    t.integer   "fechafin"
+    t.integer   "mes"
+    t.integer   "dia"
+    t.integer   "actividad"
+    t.string    "fotografia"
+    t.integer   "user_id"
+    t.integer   "estado_id", :limit => 8
+    t.integer   "micrositio_id" , :limit => 8
+    t.integer  "actividad_id", :limit => 8
+    t.text     "location"
+    t.text     "reference"
+    t.text     "lat"
+    t.text     "lng"
     t.string   "referencefb"
-    t.string   "name"
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug", using: :btree
+
+
 
   create_table "imagenes", force: true do |t|
     t.string   "slug"
@@ -99,6 +103,53 @@ ActiveRecord::Schema.define(version: 20140721162955) do
   add_index "imagenes", ["slug"], name: "index_imagenes_on_slug", using: :btree
 
 
+  create_table "locations", force: true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.string   "distance"
+    t.integer "actividad_id"
+
+    t.integer   "lat"
+    t.integer   "lng"
+    t.integer  "loc_id"
+  end
+
+  add_index "locations", ["slug"], name: "index_locations_on_slug", using: :btree
+
+
+  create_table "locs", force: true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.string   "address"
+    t.integer "actividad_id"
+    t.integer "micrositio_id"
+    t.integer "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.integer   "lat"
+    t.integer   "lng"
+  end
+
+  add_index "locs", ["slug"], name: "index_locs_on_slug", using: :btree
+
+
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -110,7 +161,10 @@ ActiveRecord::Schema.define(version: 20140721162955) do
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
 
+
+
   create_table "micrositios", force: true do |t|
+    t.integer  "uid", :limit => 8
     t.string   "name"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -123,14 +177,15 @@ ActiveRecord::Schema.define(version: 20140721162955) do
     t.integer  "hits"
     t.text     "imagen"
     t.text     "lugar"
-    t.text     "munciudad"
+    t.text     "city"
     t.text     "mapa"
     t.text     "comollegar"
     t.integer  "votos"
+    t.integer  "location_id"
     t.string   "fb_author"
     t.string   "tagcategorias"
     t.integer  "user_id"
-    t.text     "descripcion"
+    t.text     "description"
     t.integer  "status"
     t.datetime "created"
     t.datetime "publish_up"
@@ -193,6 +248,7 @@ ActiveRecord::Schema.define(version: 20140721162955) do
   end
 
 
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -236,12 +292,12 @@ ActiveRecord::Schema.define(version: 20140721162955) do
     t.text     "lng"
     t.boolean  "editor"
     t.string   "editor_estado"
-    t.string   "estado_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
+
 
 end

@@ -1,49 +1,40 @@
+<%	loc = ActiveSupport::JSON.decode(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{@location.slug}&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs").read) %>
 
-
-<%	loc = ActiveSupport::JSON.decode(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{params[:location_id]}&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs").read) %>
-
-<%	locname = params[:location_id]  %>
 <div class="hidden-xs" id="googlemaps">
   <div id="map-canvas"></div>
 </div>
-<div class="col-md-6" style="margin-top: 20px" >
+<div class="col-md-4" style="margin-top: 20px" >
 
+  <% unless @location.name.blank? %>
       <div class="col-md-12" style="margin-bottom: 20px" >
         <div class="row border"  >
           <div class="col-md-12 col-sm-12 ">
-            <h2 ><%=	locname.humanize %> </h2>
+            <h2 ><%=	@location.name.capitalize %> </h2>
           </div>
         </div>
 
-        <nav class="navbar  navbar-default" role="navigation" >
-          <ul class="nav navbar-nav navbar">
-            <% @actividades.each	 do |x|  %>
-                <li style="color: royalblue"><%=  link_to x.name, [ x, @actividad] %> </li>
 
-            <% end  %>
-          </ul>
-        </nav>
       </div>
 
       <% loc['results'].first(1).each do |x| %>
           <% lat =	 x['geometry']['location']['lat']%>
           <% lng =	 x['geometry']['location']['lng']%>
-          <% centerlng = lng - 0.2 %>
-          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@actividad.name},page&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=15000&access_token=CAAGuVkdEQa0BAAnzxDDtaNYWZANQJi6hqCSikd8ngoHVSuLYtmFgKZAinzNoRXGftvxrUwYp6lcYHA8OWEkaNZChpjNrUnNUTvDOroG4J500vWvfQlC1yRHL4wZCeRrErsVt0vQZBaTpknYCRLleBYpTPC9eNadHX8L76290PK8IQMtPhGNs9t7TEwvXO7BS990ZBUtFZBYIE5O9EGAYchC&limit=20").read) %>
+          <% centerlng = lng - 0.01 %>
+          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name },page&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=5000&access_token=CAAKvkQvf0kIBALQ5AZBGZCLMTZAXCM71DznMBFPGDkzuJNx97srdUkFIVEaADiYj4KZCb2LZBGUZActwF76iZApwVrUTF1oaOcmzzD1zTadc80XEd5XRm2kBGPEg6MqiRZCzDZCbHZBMOswVl25k4IPiQmZCqcO6rqJXYR2wYmr7WYPovSv6JneSYa7mCZCDe32mhh7ksoQsPn8xxbLb50NKQaGg&limit=20").read) %>
           <div class="col-md-12" >
             <% fbplace['data'].each do |result| %>
                 <% unless Micrositio.exists?(uid: result['id'])   %>
 
                     <%	 if Rails.env.development? %>
                         <%
-                           conn = PG.connect(:dbname => 'ntlcom_dev')
-                           conn.prepare('statement1', 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug) values ($1, $2, $3, $4, $5, $6, $7)')
-                           conn.exec_prepared('statement1', [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize ])
+                           conn = PG.connect(:dbname => 'quickplace')
+                           conn.prepare('statement1', 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug, location_id) values ($1, $2, $3, $4, $5, $6, $7, $8)')
+                           conn.exec_prepared('statement1', [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize, @location.id ])
                         %>
 
                     <%	 else %>
                         <%
-                           conn = PG.connect(:dbname => 'ntlcom_dev')
+                           conn = PG::Connection.new(:dbname => 'd2roibus5os3io', :host => 'ec2-54-204-21-178.compute-1.amazonaws.com', :user => 'osdnvffmzogwhj', :password => 'uSCN8IqQulVTUP7j-ZVDxPYAjX', :port => '5432', :sslmode => 'disable')
                            conn.prepare('statement1', 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug) values ($1, $2, $3, $4, $5, $6, $7)')
                            conn.exec_prepared('statement1', [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize ])
                         %>
@@ -56,20 +47,19 @@
                     <div id="rowinfo"  class="row border" style="margin-bottom: 10px; height: 220px" >
 
                       <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="col-md-12" style="margin-left: -35px;">
+                        <div class="col-md-12" style="margin-left: -25px; margin-top: 5px">
                           <%	 unless result['picture'].nil?  %>
                               <div class="img-responsive">
-                                <%= link_to(image_tag(result['picture']['data']['url'], style: "width: 150px;  max-height: 200px"), micrositio) %>
+                                <%= link_to(image_tag(result['picture']['data']['url'], style: "width: 130px;  max-height: 160px"), micrositio) %>
                               </div>
                           <%	end  %>
                         </div>
-                        <div class="col-md-12">
-                        </div>
+
                       </div>
-                      <div class="col-md-8 col-sm-8 col-xs-8" style="padding: 0 !important;">
-                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0 !important; text-align: center ">
-                          <h3>   <%=	 link_to micrositio.name, micrositio %> </h3>
-                          <hr/>
+                      <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0 !important;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 20px !important; margin-top: 10px; text-align: left ">
+                          <h4>   <%=	 link_to micrositio.name.first(20) , micrositio, style: "color: black !important;" %> </h4>
+                          <hr style="margin-top: -8px; margin-bottom: -0px">
                         </div>
                         <%	 if signed_in?  %>
                         <%	 else  %>
@@ -139,7 +129,7 @@
                   var myLatlng = new google.maps.LatLng(<%= lat  %>,<%= lng %>);
                   var centerlat = new google.maps.LatLng(<%= lat  %>,<%= centerlng %>);
                   var mapOptions = {
-                      zoom: 11,
+                      zoom: 14,
                       center: centerlat,
                       scrollwheel: false,
                       navigationControl: false,
@@ -150,9 +140,11 @@
                       rotateControl: false,
                       scaleControl: false,
                       streetViewControl: false,
-                      zoomControl: false
+                      zoomControl: false,
+                      tilt: 45
                   }
                   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
                   <% i = 0 %>
                   var locations = [
                       <% fbplace['data'].each do |result| %>
@@ -184,4 +176,5 @@
           </script>
 
       <%	end %>
+  <% end %>
 </div>

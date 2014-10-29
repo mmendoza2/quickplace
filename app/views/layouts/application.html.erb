@@ -1,50 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%=	 render "layouts/header" %>
+</head>
+<body>
 
-  <head>
-   <%=	 render "layouts/header" %>
-  </head>
-  <body>
-  <% if signed_in? 	  %>
-  <div id="wrapper">
-    <div class="hidden-xs">
-      <%= render 'layouts/sidebar' %>
-    </div>
-    <div class="visible-xs" style="margin-top: 50px">
-      <%= render 'layouts/sidebar' %>
-    </div>
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-        <div class="hidden-xs">
-          <%= render 'layouts/topbar' %>
-        </div>
-          <div class="visible-xs">
-            <%= render 'layouts/topbarxs' %>
-          </div>
-        <!-- Keep all page content within the page-content inset div! -->
-            <div class="page-content inset">
-                <div class="col-md-10 col-sm-12 col-lg-10">
-                     <div class="col-sm-offset-1 col-sm-10 col-xs-10" style="margin-top: 5px; margin-bottom: 5px">
-                        <% [:notice, :error, :alert].each do |level| %>
-                            <% unless flash[level].blank? %>
-                                <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
-                                  <a class="close" href="#">×</a>
-                                  <%= content_tag :p, flash[level] %>
-                                </div>
-                            <% end %>
-                        <% end %>
-                     </div>
-                   <%= yield %>
-              </div>
-            </div>
-        </div>
-  </div>
-  <script>
-      $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("active");
-      });
-  </script>
-  <%  else %>
-      <%= yield %>
-  <% end %>
-  </body>
+<%=	 render "layouts/bodyapp" %>
+
+
+</body>
+
 </html>

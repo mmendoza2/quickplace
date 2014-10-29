@@ -1,7 +1,9 @@
+<div class="container">
+
 <h1>New actividad</h1>
 
 
-<%= form_for(@actividad, :html => { :multipart => true }) do |f| %>
+<%= form_for @actividad do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
 
@@ -23,3 +25,4 @@
 <% end %>
 
 <%= link_to 'Back', actividades_path %>
+</div>

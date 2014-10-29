@@ -5,20 +5,15 @@ class ActividadesController < ApplicationController
   # GET /actividades.json
   def index
     @actividades = Actividad.all
-    @estados = Estado.all
-    @micrositios = Micrositio.all
-    @eventos = Evento.all
-    @estadosalf = Estado.order("estado")
-    @estado = Estado.all
+
   end
 
   # GET /actividades/1
   # GET /actividades/1.json
   def show
-    @actividades = Actividad.all
     @actividad = Actividad.friendly.find(params[:id])
-    @micrositio = Micrositio.new
-    @micrositios = Micrositio.all
+    @actividades = Actividad.all
+
   end
 
   # GET /actividades/new
@@ -35,9 +30,7 @@ class ActividadesController < ApplicationController
   # POST /actividades
   # POST /actividades.json
   def create
-
     @actividad = Actividad.new(actividad_params)
-
     respond_to do |format|
       if @actividad.save
         format.html { redirect_to @actividad, notice: 'Actividad was successfully created.' }
@@ -52,8 +45,7 @@ class ActividadesController < ApplicationController
   # PATCH/PUT /actividades/1
   # PATCH/PUT /actividades/1.json
   def update
-    @actividad = Actividad.friendly.find(params[:id])
-
+    @actividad = Actividad.find_or_create_by(micrositio_params)
     respond_to do |format|
       if @actividad.update(actividad_params)
         format.html { redirect_to @actividad, notice: 'Actividad was successfully updated.' }
@@ -76,13 +68,13 @@ class ActividadesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_actividad
-      @actividad = Actividad.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_actividad
+    @actividad = Actividad.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def actividad_params
-      params[:actividad].permit(:name, :namefb, :namegoogle)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def actividad_params
+    params[:actividad].permit(:name)
+  end
 end

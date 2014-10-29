@@ -1,46 +1,95 @@
-
-
-
-
 <% if signed_in?   %>
 
-    <%=	 render "shared/googlepin" %>
+    <script>
+        var map, placesList;
+        function initialize() {
+            var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                center: pyrmont,
+                zoom: 17
+            });
+            var request = {
+                location: pyrmont,
+                radius: 500,
+                types: ['restaurant']
+            };
+            placesList = document.getElementById('places');
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+        }
+        function callback(results, status, pagination) {
+            if (status != google.maps.places.PlacesServiceStatus.OK) {
+                return;
+            } else {
+                createMarkers(results);
+
+                if (pagination.hasNextPage) {
+                    var moreButton = document.getElementById('more');
+
+                    moreButton.disabled = false;
+
+                    google.maps.event.addDomListenerOnce(moreButton, 'click',
+                            function() {
+                                moreButton.disabled = true;
+                                pagination.nextPage();
+                            });
+                }
+            }
+        }
+        function createMarkers(places) {
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0, place; place = places[i]; i++) {
+                var image = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    icon: image,
+                    title: place.name,
+                    position: place.geometry.location
+                });
+
+                placesList.innerHTML += '<li style="border: solid 1px #000000">' + place.reference + '</li>';
+
+                bounds.extend(place.geometry.location);
+            }
+            map.fitBounds(bounds);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <h1>Nuevo micrositio</h1>
+        <div id="map-canvas" style="height: 400px; width: 600px"></div>
+        <div id="results" class="row">
+          <h2>Results</h2>
+          <ul id="places" style="margin: 5px"></ul>
+          <button id="more">More results</button>
+        </div>
+
+        <%= form_for(@micrositio, :html => { :multipart => true }) do |f| %>
+
+            <div id="results" class="row">
+              <h2>Results</h2>
+
+              <ul > <%= f.text_field :reference, class: 'input-sm', id: 'places' %></ul>
+
+              <button id="more">More results</button>
+            </div>
 
 
-<div class="col-md-10">
+            <div class="col-md-4 col-md-offset-4" style="margin-bottom: 10px"><%= f.submit "Sube los lugares", class: 'btn btn-primary' %></div>
+        <% end %>
 
-    <%= form_for(@micrositio, :html => { :multipart => true }) do |f| %>
-
-        <%= render 'shared/error_messages', object: f.object %>
-
-      <div class="col-md-12">  <p>Ubicación del lugar</p></div>
-      <div id="map-canvas" class="thumbnail col-md-12" style="height: 200px"></div>
-      <div id="latlong">
-        <div> <%= f.text_field :lat, class: 'input-sm', id: 'latbox' %></div>
-        <div> <%= f.text_field :lng, class: 'input-sm', id: 'lngbox' %></div>
-      </div>
-
-        <%= f.label :actividad_id %>
-        <%= f.collection_select :actividad_id, Actividad.all, :id, :name  %>
-
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-
-        <%= f.label :descripcion %>
-        <%= f.text_area :descripcion %>
-
-        <%= f.label :imagen %>
-        <%= f.file_field :photo %>
-
-
-        <%= f.submit "Sube tu lugar", class: "btn btn-large btn-primary" %>
-
-    <% end %>
-
-</div>
 
 <%	 else %>
-    <%=	 render "shared/ingresa" %>
 
 <%	 end %>
 
