@@ -10,7 +10,5 @@ class Actividad < ActiveRecord::Base
 
 
 
-  extend FriendlyId
-  friendly_id :actividad, use: :slugged
 
 end

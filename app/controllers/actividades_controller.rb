@@ -11,7 +11,7 @@ class ActividadesController < ApplicationController
   # GET /actividades/1
   # GET /actividades/1.json
   def show
-    @actividad = Actividad.friendly.find(params[:id])
+    @actividad = Actividad.find(params[:id])
     @actividades = Actividad.all
 
   end
@@ -23,8 +23,6 @@ class ActividadesController < ApplicationController
 
   # GET /actividades/1/edit
   def edit
-    @actividad = Actividad.friendly.find(params[:id])
-
   end
 
   # POST /actividades
@@ -45,7 +43,6 @@ class ActividadesController < ApplicationController
   # PATCH/PUT /actividades/1
   # PATCH/PUT /actividades/1.json
   def update
-    @actividad = Actividad.find_or_create_by(micrositio_params)
     respond_to do |format|
       if @actividad.update(actividad_params)
         format.html { redirect_to @actividad, notice: 'Actividad was successfully updated.' }
@@ -70,11 +67,11 @@ class ActividadesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_actividad
-    @actividad = Actividad.friendly.find(params[:id])
+    @actividad = Actividad.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def actividad_params
-    params[:actividad].permit(:name)
+    params.require(:actividad).permit(:name)
   end
 end
