@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%=	 render "layouts/header" %>
+</head>
+<body>
+
+<% if signed_in? 	  %>
+    <%= render 'layouts/topbar' %>
+    <div id="imagenprincipal" style="margin-top: 50px; background-color: #dce0d8; ">
+      <%= yield %>
+    </div>
+<%  else %>
+
+      <%= yield %>
+<% end %>
+
+
+</body>
+
+</html>
