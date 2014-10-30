@@ -44209,3 +44209,931 @@ Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-29 19:52:10 -0600
 
 
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-29 19:52:10 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+Processing by HomeController#home as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered home/home.html.erb within layouts/home (2.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (8.3ms)
+  [1m[35mActividad Load (0.7ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC[0m
+  Rendered layouts/_topbar.html.erb (5.8ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:24 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-29 20:02:25 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-29 20:45:18 -0600
+Processing by HomeController#home as HTML
+  [1m[36mUser Load (66.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered home/home.html.erb within layouts/home (225.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (490.1ms)
+  [1m[35mActividad Load (66.1ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC[0m
+  Rendered layouts/_topbar.html.erb (298.8ms)
+Completed 200 OK in 1613ms (Views: 1064.5ms | ActiveRecord: 426.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:20 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:21 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:21 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:21 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:21 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:21 -0600
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2014-10-29 20:45:22 -0600
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-29 20:45:22 -0600
+
+
+Started POST "/locations" for 127.0.0.1 at 2014-10-29 20:45:28 -0600
+Processing by LocationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9RFNWu2ijKwk4u+cCqC6lUc2A3uvTySXqQUQn0IjbY=", "location"=>{"actividad_id"=>"3", "name"=>"Monterrey, Mexico"}}
+  [1m[35mLocation Load (56.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Monterrey, Mexico' AND "locations"."actividad_id" = 3 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/locations/monterrey-mexico
+Completed 302 Found in 67ms (ActiveRecord: 57.0ms)
+
+
+Started GET "/locations/monterrey-mexico" for 127.0.0.1 at 2014-10-29 20:45:29 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"monterrey-mexico"}
+  [1m[36mLocation Load (0.9ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'monterrey-mexico' ORDER BY "locations"."id" ASC LIMIT 1[0m
+  [1m[35mActividad Load (35.1ms)[0m  SELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered locations/show.html.erb within layouts/application (2253.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (8.2ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mActividad Load (0.7ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  Rendered layouts/_topbar.html.erb (6.1ms)
+  Rendered layouts/_bodyapp.html.erb (12.1ms)
+Completed 200 OK in 2328ms (Views: 2287.3ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:31 -0600
+
+
+Started POST "/locations" for 127.0.0.1 at 2014-10-29 20:45:39 -0600
+Processing by LocationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9RFNWu2ijKwk4u+cCqC6lUc2A3uvTySXqQUQn0IjbY=", "location"=>{"actividad_id"=>"3", "name"=>"Mazatlán, Mexico"}}
+  [1m[36mLocation Load (1.1ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Mazatlán, Mexico' AND "locations"."actividad_id" = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = 'mazatlan-mexico' LIMIT 1[0m
+  [1m[35mSQL (50.9ms)[0m  INSERT INTO "locations" ("actividad_id", "created_at", "name", "slug", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["actividad_id", 3], ["created_at", Thu, 30 Oct 2014 02:45:40 UTC +00:00], ["name", "Mazatlán, Mexico"], ["slug", "mazatlan-mexico"], ["updated_at", Thu, 30 Oct 2014 02:45:40 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/locations/mazatlan-mexico
+Completed 302 Found in 716ms (ActiveRecord: 54.9ms)
+
+
+Started GET "/locations/mazatlan-mexico" for 127.0.0.1 at 2014-10-29 20:45:40 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"mazatlan-mexico"}
+  [1m[35mLocation Load (0.8ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'mazatlan-mexico' ORDER BY "locations"."id" ASC LIMIT 1
+  [1m[36mActividad Load (0.7ms)[0m  [1mSELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered locations/show.html.erb within layouts/application (2043.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (11.3ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActividad Load (0.6ms)[0m  [1mSELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC[0m
+  Rendered layouts/_topbar.html.erb (4.3ms)
+  Rendered layouts/_bodyapp.html.erb (7.4ms)
+Completed 200 OK in 2070ms (Views: 2064.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:42 -0600
+
+
+Started POST "/locations" for 127.0.0.1 at 2014-10-29 20:45:49 -0600
+Processing by LocationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9RFNWu2ijKwk4u+cCqC6lUc2A3uvTySXqQUQn0IjbY=", "location"=>{"actividad_id"=>"1", "name"=>"Mazatlán, Mexico"}}
+  [1m[35mLocation Load (0.7ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Mazatlán, Mexico' AND "locations"."actividad_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mLocation Exists (0.7ms)[0m  SELECT 1 AS one FROM "locations" WHERE "locations"."slug" = 'mazatlan-mexico' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "locations" ("actividad_id", "created_at", "name", "slug", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["actividad_id", 1], ["created_at", Thu, 30 Oct 2014 02:45:49 UTC +00:00], ["name", "Mazatlán, Mexico"], ["slug", "mazatlan-mexico-bf335f2b-08cd-49f6-9097-8b58c8905638"], ["updated_at", Thu, 30 Oct 2014 02:45:49 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/locations/mazatlan-mexico-bf335f2b-08cd-49f6-9097-8b58c8905638
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/locations/mazatlan-mexico-bf335f2b-08cd-49f6-9097-8b58c8905638" for 127.0.0.1 at 2014-10-29 20:45:49 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"mazatlan-mexico-bf335f2b-08cd-49f6-9097-8b58c8905638"}
+  [1m[36mLocation Load (1.6ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'mazatlan-mexico-bf335f2b-08cd-49f6-9097-8b58c8905638' ORDER BY "locations"."id" ASC LIMIT 1[0m
+  [1m[35mActividad Load (0.8ms)[0m  SELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMicrositio Exists (43.0ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 548477475238688 LIMIT 1[0m
+  [1m[35mMicrositio Load (21.2ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 548477475238688 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.7ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 168813163152742 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 168813163152742 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.7ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 512016222205944 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 512016222205944 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.7ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 1412317625670266 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 1412317625670266 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 215716861774035 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 215716861774035 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 196392957065457 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 196392957065457 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 331307050062 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 331307050062 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 105019846200457 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 105019846200457 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 653026841390925 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 653026841390925 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 331861093825 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 331861093825 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 171899742859438 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 171899742859438 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 602349139839312 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 602349139839312 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 252950434864159 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 252950434864159 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 189421587771835 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 189421587771835 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 117538191647615 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 117538191647615 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 231116666942233 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 231116666942233 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 250782518383522 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 250782518383522 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 295631123849718 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 295631123849718 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 368014926625979 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 368014926625979 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 164807850274930 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 164807850274930 LIMIT 1[0m
+  Rendered locations/show.html.erb within layouts/application (3107.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (6.9ms)
+  [1m[35mActividad Load (0.6ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  Rendered layouts/_topbar.html.erb (4.0ms)
+  Rendered layouts/_bodyapp.html.erb (4.7ms)
+Completed 200 OK in 3129ms (Views: 3009.1ms | ActiveRecord: 116.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:45:53 -0600
+
+
+Started POST "/locations" for 127.0.0.1 at 2014-10-29 20:46:13 -0600
+Processing by LocationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9RFNWu2ijKwk4u+cCqC6lUc2A3uvTySXqQUQn0IjbY=", "location"=>{"actividad_id"=>"1", "name"=>"SAYULITA, Avenida Cristóbal Colón, Treviño, Monterrey, Mexico"}}
+  [1m[36mLocation Load (0.8ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'SAYULITA, Avenida Cristóbal Colón, Treviño, Monterrey, Mexico' AND "locations"."actividad_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = 'sayulita-avenida-cristobal-colon-trevino-monterrey-mexico' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "locations" ("actividad_id", "created_at", "name", "slug", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["actividad_id", 1], ["created_at", Thu, 30 Oct 2014 02:46:13 UTC +00:00], ["name", "SAYULITA, Avenida Cristóbal Colón, Treviño, Monterrey, Mexico"], ["slug", "sayulita-avenida-cristobal-colon-trevino-monterrey-mexico"], ["updated_at", Thu, 30 Oct 2014 02:46:13 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/locations/sayulita-avenida-cristobal-colon-trevino-monterrey-mexico
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/locations/sayulita-avenida-cristobal-colon-trevino-monterrey-mexico" for 127.0.0.1 at 2014-10-29 20:46:13 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"sayulita-avenida-cristobal-colon-trevino-monterrey-mexico"}
+  [1m[35mLocation Load (0.7ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'sayulita-avenida-cristobal-colon-trevino-monterrey-mexico' ORDER BY "locations"."id" ASC LIMIT 1
+  [1m[36mActividad Load (1.0ms)[0m  [1mSELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mMicrositio Exists (0.9ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 763982480299070 LIMIT 1
+  [1m[36mMicrositio Load (1.2ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 763982480299070 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMicrositio Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 100836959974198 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.7ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 100836959974198 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 123572127656263 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 123572127656263 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 385537394916178 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 385537394916178 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 936492896367310 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.5ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 936492896367310 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 152933079405 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 152933079405 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 260596614043209 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 260596614043209 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 220675568116421 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 220675568116421 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 746641185369965 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 746641185369965 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 262778107089158 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 262778107089158 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 304136099791605 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.7ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 304136099791605 LIMIT 1
+  [1m[36mMicrositio Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 683506508383042 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 683506508383042 LIMIT 1
+  [1m[36mMicrositio Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 234629586640673 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 234629586640673 LIMIT 1
+  [1m[36mMicrositio Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 631956676878342 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.8ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 631956676878342 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 180188398682785 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.7ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 180188398682785 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 150324695016372 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.7ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 150324695016372 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 208082669344424 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 208082669344424 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 188033097894124 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.7ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 188033097894124 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 871691636193355 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.8ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 871691636193355 LIMIT 1
+  [1m[36mMicrositio Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 44912997719 LIMIT 1[0m
+  [1m[35mMicrositio Load (0.6ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 44912997719 LIMIT 1
+  Rendered locations/show.html.erb within layouts/application (3943.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (7.2ms)
+  [1m[36mActividad Load (0.6ms)[0m  [1mSELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC[0m
+  Rendered layouts/_topbar.html.erb (4.7ms)
+  Rendered layouts/_bodyapp.html.erb (5.4ms)
+Completed 200 OK in 3963ms (Views: 3932.7ms | ActiveRecord: 27.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:17 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:18 -0600
+
+
+Started POST "/locations" for 127.0.0.1 at 2014-10-29 20:46:43 -0600
+Processing by LocationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c9RFNWu2ijKwk4u+cCqC6lUc2A3uvTySXqQUQn0IjbY=", "location"=>{"actividad_id"=>"1", "name"=>"Tampico, Tamaulipas, Mexico"}}
+  [1m[35mLocation Load (1.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tampico, Tamaulipas, Mexico' AND "locations"."actividad_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mLocation Exists (0.6ms)[0m  SELECT 1 AS one FROM "locations" WHERE "locations"."slug" = 'tampico-tamaulipas-mexico' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "locations" ("actividad_id", "created_at", "name", "slug", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["actividad_id", 1], ["created_at", Thu, 30 Oct 2014 02:46:43 UTC +00:00], ["name", "Tampico, Tamaulipas, Mexico"], ["slug", "tampico-tamaulipas-mexico"], ["updated_at", Thu, 30 Oct 2014 02:46:43 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/locations/tampico-tamaulipas-mexico
+Completed 302 Found in 13ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/locations/tampico-tamaulipas-mexico" for 127.0.0.1 at 2014-10-29 20:46:43 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"tampico-tamaulipas-mexico"}
+  [1m[36mLocation Load (0.8ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'tampico-tamaulipas-mexico' ORDER BY "locations"."id" ASC LIMIT 1[0m
+  [1m[35mActividad Load (0.9ms)[0m  SELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMicrositio Exists (1.2ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 139494692783450 LIMIT 1[0m
+  [1m[35mMicrositio Load (2.0ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 139494692783450 LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 298335110341016 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 298335110341016 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 273528896073621 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 273528896073621 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 174791842552991 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 174791842552991 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 203391446431250 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 203391446431250 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 158112930913801 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 158112930913801 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 495974707096463 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 495974707096463 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 570373046339451 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 570373046339451 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 227889700703670 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 227889700703670 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 391112700919317 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 391112700919317 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 114507972073065 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 114507972073065 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 124942807534619 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 124942807534619 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 347500338633740 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 347500338633740 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 171741256220357 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 171741256220357 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 488631897859400 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 488631897859400 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 250572388404124 LIMIT 1
+  [1m[36mMicrositio Load (0.8ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 250572388404124 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 513779595362556 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 513779595362556 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 235390316574981 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 235390316574981 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 411813998844910 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 411813998844910 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 265137983583177 LIMIT 1
+  [1m[36mMicrositio Load (0.9ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 265137983583177 LIMIT 1[0m
+  Rendered locations/show.html.erb within layouts/application (3563.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (7.3ms)
+  [1m[35mActividad Load (0.6ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  Rendered layouts/_topbar.html.erb (4.0ms)
+  Rendered layouts/_bodyapp.html.erb (4.6ms)
+Completed 200 OK in 3583ms (Views: 3550.1ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:47 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:46:48 -0600
+
+
+Started GET "/locations/tampico-tamaulipas-mexico" for 127.0.0.1 at 2014-10-29 20:57:01 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"tampico-tamaulipas-mexico"}
+  [1m[36mLocation Load (0.7ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = 'tampico-tamaulipas-mexico' ORDER BY "locations"."id" ASC LIMIT 1[0m
+  [1m[35mActividad Load (0.9ms)[0m  SELECT "actividades".* FROM "actividades" WHERE "actividades"."id" = $1 ORDER BY "actividades"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMicrositio Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 139494692783450 LIMIT 1[0m
+  [1m[35mMicrositio Load (1.0ms)[0m  SELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 139494692783450 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.6ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 298335110341016 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 298335110341016 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 273528896073621 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 273528896073621 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 174791842552991 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 174791842552991 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 203391446431250 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 203391446431250 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 158112930913801 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 158112930913801 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 495974707096463 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 495974707096463 LIMIT 1[0m
+  [1m[35mMicrositio Exists (1.0ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 570373046339451 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 570373046339451 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 227889700703670 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 227889700703670 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 391112700919317 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 391112700919317 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 114507972073065 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 114507972073065 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 124942807534619 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 124942807534619 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 347500338633740 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 347500338633740 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 171741256220357 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 171741256220357 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 488631897859400 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 488631897859400 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 250572388404124 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 250572388404124 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 513779595362556 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 513779595362556 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 235390316574981 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 235390316574981 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 411813998844910 LIMIT 1
+  [1m[36mMicrositio Load (0.7ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 411813998844910 LIMIT 1[0m
+  [1m[35mMicrositio Exists (0.5ms)[0m  SELECT 1 AS one FROM "micrositios" WHERE "micrositios"."uid" = 265137983583177 LIMIT 1
+  [1m[36mMicrositio Load (0.6ms)[0m  [1mSELECT "micrositios".* FROM "micrositios" WHERE "micrositios"."uid" = 265137983583177 LIMIT 1[0m
+  Rendered locations/show.html.erb within layouts/application (1144.4ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (6.6ms)
+  [1m[35mActividad Load (0.6ms)[0m  SELECT "actividades".* FROM "actividades" ORDER BY "actividades".name ASC
+  Rendered layouts/_topbar.html.erb (4.2ms)
+  Rendered layouts/_bodyapp.html.erb (4.8ms)
+Completed 200 OK in 1162ms (Views: 1132.2ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/quickplace.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/google.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/simple-sidebar.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:02 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 20:57:03 -0600
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-10-29 20:57:04 -0600
