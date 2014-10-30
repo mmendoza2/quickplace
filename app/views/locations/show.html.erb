@@ -12,9 +12,17 @@
             <h2 ><%=	@location.name.capitalize %> </h2>
           </div>
         </div>
-
-
       </div>
+
+      <%	 if Rails.env.development? %>
+          <%
+             conn = PG.connect(:dbname => 'quickplace')
+          %>
+      <%	 else %>
+          <%
+             conn = PG::Connection.new(:dbname => 'd5c3r9ii93caqk', :host => 'ec2-54-83-204-85.compute-1.amazonaws.com', :user => 'gthnfhpokxzlhs', :password => 'j4skwkuZuKjEcRXZRS1seKA-pp', :port => '5432', :sslmode => 'disable')
+          %>
+      <%	 end %>
 
       <% loc['results'].first(1).each do |x| %>
           <% lat =	 x['geometry']['location']['lat']%>
@@ -27,16 +35,14 @@
 
                     <%	 if Rails.env.development? %>
                         <%
-                           conn = PG.connect(:dbname => 'quickplace')
-                           conn.prepare('statement1', 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug, location_id) values ($1, $2, $3, $4, $5, $6, $7, $8)')
-                           conn.exec_prepared('statement1', [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize, @location.id ])
+                           conn.prepare(result['id'], 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug, location_id) values ($1, $2, $3, $4, $5, $6, $7, $8)')
+                           conn.exec_prepared(result['id'], [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize, @location.id ])
                         %>
 
                     <%	 else %>
                         <%
-                           conn = PG::Connection.new(:dbname => 'd5c3r9ii93caqk', :host => 'ec2-54-83-204-85.compute-1.amazonaws.com', :user => 'gthnfhpokxzlhs', :password => 'j4skwkuZuKjEcRXZRS1seKA-pp', :port => '5432', :sslmode => 'disable')
-                           conn.prepare('statement1', 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug) values ($1, $2, $3, $4, $5, $6, $7)')
-                           conn.exec_prepared('statement1', [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize ])
+                           conn.prepare(result['id'], 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug) values ($1, $2, $3, $4, $5, $6, $7)')
+                           conn.exec_prepared(result['id'], [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize ])
                         %>
 
                     <%	 end %>
