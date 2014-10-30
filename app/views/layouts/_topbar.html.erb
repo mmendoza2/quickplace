@@ -19,7 +19,7 @@
           <div class="form-group" >
             <%=	 form_for Location.new,  :html => {:class => "navbar-form navbar-right visible-md visible-lg ", role: "search"}  do |t| %>
                 <%=	 t.collection_select(:actividad_id, Actividad.order(:name), :id, :name, {selected:  @location.blank? ? Actividad.order(:name).shuffle.first.id  : @location.actividad.id },{class: "form-control ", style: "min-width: 120px; "}) %>
-                <%=	 t.text_field :name, placeholder: (@location.name unless @location.blank?) , id: 'searchTextField', class: 'form-control input-group-sm ', size: '25' %>
+                <%=	 t.text_field :name, placeholder: (@location.name unless @location.blank?)   , value: (@location.name unless @location.blank?), id: 'searchTextField', class: 'form-control input-group-sm ', size: '25' %>
                 <%= button_tag(type: 'submit', class: "btn btn-default", style: "background-color: transparent; border: none") do %>
                     <i class="fa fa-2x fa-search" style="color: #ffffff"></i>
                 <% end %>
