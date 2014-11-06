@@ -13,15 +13,22 @@
 
 
     <div class="container">
-      <div class="col-md-8 col-md-offset-2" style="margin-top: 20%; text-align: center" >
-        <h1 style="vertical-align: middle; color: #ffffff">  Welcome to QuickPlace </h1>
-
-        <p></p>
-        <hr/>
-        <div style="text-align: center">
-        <i class="icon-facebook-sign"></i>  <%= link_to "Ingresa con Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+      <div class="col-md-10 col-md-offset-1" style="margin-top: 20%; text-align: center" >
+            <div class="img-responsive ">
+            <%= image_tag "https://s3.amazonaws.com/quickplace/images/Logo-white-01.png", style: 'width: 400px'  %>
+            </div>
+        <br/>
+        <br/>
+        <div style="text-align: center; color: #ffffff;">
+        <h3> Make reservations at bars, clubs & restaurants. See where your friends are going tonight </h3>
+          <br/>
+          <h3 style="font-family: DINN-light !important;">   Share your favorite places. View upcoming events and More!</h3>
+          <br/>
+          <br/>
+        <i class="icon-facebook-sign"></i>  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
         </div>
       </div>
     </div>
+
 
 <%	 end %>

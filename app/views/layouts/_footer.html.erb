@@ -2,26 +2,23 @@
 
 
 
-<footer class="footer col-md-12">
-     <div class="row">
 
-      <div class="row"  style="margin-top: 20px">
-        <div class="col-md-4">
-          <h6> <a href="http://quickplace.com/">QuickPlace.com v.1</a> </h6>
-          by ZWOPA S.A.P.I. de C.V.
-        </div>
-        <div class="col-md-8">
-          <nav >
-            <ul class="list-inline pull-right">
-              <li><%= link_to "Selecciona más actividades ", instrucciones_path %></li>
-              <li><%= link_to "Nosotros",   nosotros_path %></li>
-              <li><%= link_to "Contactanos", contacto_path %></li>
-              <li><%= link_to "Terminos y Condiciones", terminos_path %></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-     </div>
+<div  class="footer col-md-12" style="background-color: #333138; opacity: .8; position: absolute; bottom: 0; height: 60px; ">
+  <div class="container">
 
 
-</footer>
+    <div class="col-md-4" style="margin-top: 20px">
+      <h5 > <a style="color: #ffffff !important;" href="http://quickplace.com/">QuickPlace.com v.1</a> </h5>
+    </div>
+    <div class="col-md-8" style="margin-top: 20px">
+      <nav >
+        <ul class="list-inline pull-right" >
+          <li ><%= link_to "About us", root_path, style: "color: white"   %></li>
+          <li ><%= link_to "Contact us", root_path, style: "color: white"   %></li>
+          <li ><%= link_to "Terms & Conditions", root_path, style: "color: white"   %></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>

@@ -14,3 +14,27 @@
  */
 
 
+@font-face {
+    font-family: 'DINN-bold';
+    src: url('/assets/DINNextRoundedLTPro-Bold.otf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DINN-light';
+    src: url('/assets/DINNextRoundedLTPro-Light.otf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DINN-medium';
+    src: url('/assets/DINNextRoundedLTPro-Medium.otf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DINN-regular';
+    src: url('/assets/DINNextRoundedLTPro-Regular.otf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
