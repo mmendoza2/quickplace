@@ -1,5 +1,7 @@
 class Micrositio < ActiveRecord::Base
 
+
+  has_many :eventos, :primary_key => "uid"
   has_many :reservations
   has_many :reverse_relationmicrositios, foreign_key: "followed_id",
            class_name:  "Relationmicrositio",
