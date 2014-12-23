@@ -7,22 +7,28 @@
 <%	 else %>
 
 
-    <div class="img-responsive" style="margin-top: -150px; position: fixed; ">
-      <%= image_tag "https://s3.amazonaws.com/quickplace/images/quickplace.jpg", style: "width: 100%; min-height: 100%" %>
+
+
+
+    <div id="bg" style="margin-top: -100px;  ">
+      <%= image_tag "https://s3.amazonaws.com/quickplace/images/quickplace.jpg"%>
     </div>
 
 
-    <div class="container">
+    <div class="container " style="z-index: -1" >
       <div class="col-md-12" style="margin-top: 20%; text-align: center" >
             <div class="img-responsive ">
             <%= image_tag "https://s3.amazonaws.com/quickplace/images/Logo-white-01.png", style: 'width: 400px'  %>
             </div>
         <br/>
         <br/>
-        <div style="text-align: center; color: #ffffff;font-family: DINN-light !important;">
-        <h3> Make reservations at bars, clubs & restaurants. See where your friends are going tonight </h3>
+        <div  style="text-align: center; color: #ffffff;  ">
+          <div class="col-md-10 col-md-offset-1" style="background-color: #808080; padding-top: 15px; padding-bottom: 15px; padding-left: 5px; border-radius: 10px; opacity: .5; z-index: 5">
+            <h3 style="z-index: 10"> Make reservations at bars, clubs & restaurants. See where your friends are going tonight </h3>
+              <br/>
+            <h3>   Share your favorite places. View upcoming events and More!</h3>
+          </div>
           <br/>
-          <h3>   Share your favorite places. View upcoming events and More!</h3>
           <br/>
           <br/>
         <i class="icon-facebook-sign"></i>  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
