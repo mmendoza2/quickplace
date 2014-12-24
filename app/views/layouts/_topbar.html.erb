@@ -19,7 +19,7 @@
           <div class="form-group" >
             <%=	 form_for Location.new,  :html => {:class => "navbar-form navbar-right visible-md visible-lg ", role: "search"}  do |t| %>
                 <%=	 t.collection_select(:actividad_id, Actividad.order(:name), :id, :name, {selected:  @location.blank? ? Actividad.order(:name).shuffle.first.id  : @location.actividad.id },{class: "form-control ", style: "min-width: 120px; "}) %>
-                <%=	 t.text_field :name, placeholder: (@location.name unless @location.blank?)   , value: (@location.name unless @location.blank?), id: 'searchTextField', class: 'form-control input-group-sm ', size: '35' %>
+                <%=	 t.text_field :name, placeholder: (@location.name unless @location.blank?)   , value: (@location.name unless @location.blank?), id: 'searchTextField', class: 'form-control input-group-sm ', size: '25' %>
                 <%= button_tag(type: 'submit', class: "btn btn-default", style: "background-color: transparent; border: none") do %>
                     <i class="fa fa-2x fa-search" style="color: #ffffff"></i>
                 <% end %>
@@ -44,7 +44,7 @@
 
 
       <ul class="nav navbar-nav navbar-right" style="margin-right: 5%">
-        <li>
+        <li style="z-index: 2">
           <% if current_user.photo_file_name.blank?  %>
               <% if current_user.avatar.blank?  %>
                   <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchiquito"), current_user %>
@@ -54,18 +54,16 @@
           <% else %>
               <%= link_to image_tag(current_user.photo.url(:square), class: "avatarchiquito"), current_user  %>
           <%	 end %>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.name.first(20) %> <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Perfil", current_user %></li>
-            <li><%= link_to "Configuración", edit_user_registration_path(current_user) %></li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Salir",  destroy_user_session_path, method: "delete" %>
+
+            <li style="margin-top: 9px; padding-right: 20px; padding-left: 15px; margin-left: -35px; background-color:rgba(255, 255, 255, 0.80); z-index: 1; border-radius: 5px">
+              <ul class="list-unstyled">
+                <li style="font-size: 12px; font-weight: bold !important;"><%= link_to current_user.name.first(20), current_user %></li>
+                <li style="font-size: 10px; margin-bottom: -3px; margin-top: -2px"><%= link_to "Friends", users_path %></li>
+                <li style="font-size: 10px"><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
+              </ul>
             </li>
-          </ul>
         </li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
 
