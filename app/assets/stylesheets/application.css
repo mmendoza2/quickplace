@@ -38,3 +38,9 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'FUTURA-regular';
+    src: url('/assets/FuturaStd-Book.otf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
