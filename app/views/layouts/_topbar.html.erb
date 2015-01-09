@@ -9,7 +9,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,25 +25,12 @@
             <%	 end %>
           </div>
         </li>
-
-
-
-
-
       </ul>
-
       <ul class="nav navbar-nav navbar" style="margin-left: 10%">
-
         <%= link_to image_tag("https://s3.amazonaws.com/quickplace/images/Logo-white-01.png", style: 'width: 200px' ), root_path %>
-
       </ul>
-
-
-
-
-
-      <ul class="nav navbar-nav navbar-right" style="margin-right: 5%">
-        <li style="z-index: 2">
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 5%; ">
+        <li >
           <% if current_user.photo_file_name.blank?  %>
               <% if current_user.avatar.blank?  %>
                   <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchiquito"), current_user %>
@@ -54,34 +40,38 @@
           <% else %>
               <%= link_to image_tag(current_user.photo.url(:square), class: "avatarchiquito"), current_user  %>
           <%	 end %>
-
-            <li style="margin-top: 9px; padding-right: 20px; padding-left: 15px; margin-left: -35px; background-color:rgba(255, 255, 255, 0.80); z-index: 1; border-radius: 5px">
-              <ul class="list-unstyled">
-                <li style="font-size: 12px; font-weight: bold !important;"><%= link_to current_user.name.first(20), current_user %></li>
-                <li style="font-size: 10px; margin-bottom: -3px; margin-top: -2px"><%= link_to "Friends", users_path %></li>
-                <li style="font-size: 10px"><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
-              </ul>
-            </li>
         </li>
-
-      </ul>
-
-
-      <ul class="nav navbar-nav navbar-right " style="margin-top: 5px" >
-
-        <li class="dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">  <%= image_tag "https://s3.amazonaws.com/quickplace/images/notification-world.png", style: 'width:20px '  %></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#"> <%= link_to "Terms & Conditions", terms_path %> </a></li>
+        <li class="dropdown" style="margin-top: 5px; margin-left: -20px">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="background-color: inherit">
+            <%= current_user.name.first(20) %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" style="margin-top: 5px"  >
+            <li><%= link_to "Perfil", current_user %></li>
+            <li><%= link_to "Configuración", edit_user_registration_path(current_user) %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Salir",  destroy_user_session_path, method: "delete" %>
+            </li>
           </ul>
         </li>
-
+      </ul>
+      <ul class="nav navbar-nav navbar-right " style="margin-top: 5px; margin-right: 6px" >
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: inherit">
+              <span class="label">5</span>
+              <i> <%= image_tag "https://s3.amazonaws.com/quickplace/images/notification-world.png", style: 'width:20px'%></i>
+          </a>
+          <ul class="dropdown-menu" role="menu" style="margin-top: 5px">
+            <li><a href="#"> <%= link_to "Terms & Conditions", terms_path %> </a></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Sign out",  destroy_user_session_path, method: "delete" %>
+            </li>          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-
 </div>
-
-
 
 <script type="text/javascript">
     $(document).ready(function(){
