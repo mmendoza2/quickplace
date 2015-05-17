@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails quickplace: development" uuid="dbd3c703-f1ff-4be9-b4fd-77a67245f08b">
+  <data-source name="Rails quickplace: development" uuid="dbd3c703-f1ff-4be9-b4fd-77a67245f08b">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

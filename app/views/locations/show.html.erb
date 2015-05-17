@@ -25,8 +25,10 @@
       <% loc['results'].first(1).each do |x| %>
           <%= lat =	 x['geometry']['location']['lat']%>
           <%= lng =	 x['geometry']['location']['lng']%>
+          <%= @location.actividad.name %>
           <% centerlng = lng - 0.01 %>
-          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&type=place&center=#{lat},#{lng}&distance=5000&fields=cover,checkins,description,name,location,likes,category_list,picture.width(600)&access_token=CAAKvkQvf0kIBALQ5AZBGZCLMTZAXCM71DznMBFPGDkzuJNx97srdUkFIVEaADiYj4KZCb2LZBGUZActwF76iZApwVrUTF1oaOcmzzD1zTadc80XEd5XRm2kBGPEg6MqiRZCzDZCbHZBMOswVl25k4IPiQmZCqcO6rqJXYR2wYmr7WYPovSv6JneSYa7mCZCDe32mhh7ksoQsPn8xxbLb50NKQaGg&limit=100").read) %>
+
+          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=20").read) %>
           <div class="col-md-12" >
             <% fbplace['data'].each do |result| %>
                 <% unless Micrositio.exists?(uid: result['id'])   %>
