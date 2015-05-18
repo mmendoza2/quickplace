@@ -65,6 +65,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def refesh_auth_tooken(refresh_token)
+    client = Google::APIClient.new
+    puts "REFESH TOOKEN"
+    client.authorization = client_secrets
+    client.authorization.refresh_token = refresh_token
+
+    #puts YAML::dump(client.authorization)
+
+    client.authorization.fetch_access_token!
+    return client.authorization
+
+  end
+
   def password_required?
     super && provider.blank?
   end

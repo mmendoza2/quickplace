@@ -15,6 +15,13 @@ class Devise::SessionsController < DeviseController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
+
+    auth = request.env["omniauth.auth"]
+    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]).tap do |u|
+      u.update_attributes(:token => auth["credentials"]["token"]) if u
+    end || User.create_with_omniauth(auth)
+    session[:user_id] = user.id
+
     yield resource if block_given?
     respond_with resource, :location => after_sign_in_path_for(resource)
   end
