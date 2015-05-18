@@ -1,5 +1,8 @@
 <%	loc = ActiveSupport::JSON.decode(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{@location.slug}&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs").read) %>
 
+
+
+
 <div class="hidden-xs" id="googlemaps">
   <div id="map-canvas"></div>
 </div>
@@ -28,7 +31,7 @@
           <%= @location.actividad.name %>
           <% centerlng = lng - 0.01 %>
 
-          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=20").read) %>
+          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=40").read) %>
           <div class="col-md-12" >
             <% fbplace['data'].each do |result| %>
                 <% unless Micrositio.exists?(uid: result['id'])   %>
