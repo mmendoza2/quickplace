@@ -1,177 +1,182 @@
-<%	loc = ActiveSupport::JSON.decode(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{@location.slug}&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs").read) %>
+
+<%	 if signed_in? %>
 
 
-
-
-<div class="hidden-xs" id="googlemaps">
-  <div id="map-canvas"></div>
-</div>
-<div class="col-md-4" style="margin-top: 20px" >
-  <% unless @location.name.blank? %>
-      <div class="col-md-12" style="margin-bottom: 20px" >
-        <div class="row border"  >
-          <div class="col-md-12 col-sm-12 ">
-            <h2 ><%=	@location.name.capitalize %> </h2>
+    <%	loc = ActiveSupport::JSON.decode(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{@location.slug}&key=AIzaSyCxH3uvobKynTSs63CoAcTQSB0xzCRduCs").read) %>
+    <div class="hidden-xs" id="googlemaps">
+      <div id="map-canvas"></div>
+    </div>
+    <div class="col-md-4" style="margin-top: 20px" >
+      <% unless @location.name.blank? %>
+          <div class="col-md-12" style="margin-bottom: 20px" >
+            <div class="row border"  >
+              <div class="col-md-12 col-sm-12 ">
+                <h2 ><%=	@location.name.capitalize %> </h2>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <%	 if Rails.env.development? %>
-          <%
-             conn = PG.connect(:dbname => 'quickplace')
-          %>
-      <%	 else %>
-          <%
-             conn = PG::Connection.new(:dbname => 'def8ho0bpl0bl', :host => 'ec2-54-235-146-58.compute-1.amazonaws.com', :user => 'pnumbtekmwlbyr', :password => 'k_U3aa_TnjYyilSbRzJsMnTar2', :port => '5432', :sslmode => 'disable')
-          %>
-      <%	 end %>
-      <% loc['results'].first(1).each do |x| %>
-          <%= lat =	 x['geometry']['location']['lat']%>
-          <%= lng =	 x['geometry']['location']['lng']%>
-          <%= @location.actividad.name %>
-          <% centerlng = lng - 0.01 %>
+          <%	 if Rails.env.development? %>
+              <%
+                 conn = PG.connect(:dbname => 'quickplace')
+              %>
+          <%	 else %>
+              <%
+                 conn = PG::Connection.new(:dbname => 'def8ho0bpl0bl', :host => 'ec2-54-235-146-58.compute-1.amazonaws.com', :user => 'pnumbtekmwlbyr', :password => 'k_U3aa_TnjYyilSbRzJsMnTar2', :port => '5432', :sslmode => 'disable')
+              %>
+          <%	 end %>
+          <% loc['results'].first(1).each do |x| %>
+              <%= lat =	 x['geometry']['location']['lat']%>
+              <%= lng =	 x['geometry']['location']['lng']%>
+              <%= @location.actividad.name %>
+              <% centerlng = lng - 0.01 %>
 
 
-          <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=40").read) %>
-          <div class="col-md-12" >
-            <% fbplace['data'].each do |result| %>
-                <% unless Micrositio.exists?(uid: result['id'])   %>
-                        <%
-                           conn.prepare(result['id'], 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug, location_id) values ($1, $2, $3, $4, $5, $6, $7, $8)')
-                           conn.exec_prepared(result['id'], [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize, @location.id ])
-                        %>
-                <%	 end %>
-                <% unless result.nil? %>
-                    <% micrositio = Micrositio.where(uid: result['id']).take %>
-                    <div id="rowinfo"  class="row border" style="margin-bottom: 10px; height: 220px" >
-                      <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="col-md-12" style="margin-left: -25px; margin-top: 5px">
-                          <%	 unless result['picture'].nil?  %>
-                              <div class="img-responsive">
-                                <%= link_to(image_tag(result['picture']['data']['url'], style: "width: 130px;  max-height: 160px"), micrositio) %>
+              <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=40").read) %>
+              <div class="col-md-12" >
+                <% fbplace['data'].each do |result| %>
+                    <% unless Micrositio.exists?(uid: result['id'])   %>
+                            <%
+                               conn.prepare(result['id'], 'INSERT INTO micrositios (uid, name, lat, lng, imagen, city, slug, location_id) values ($1, $2, $3, $4, $5, $6, $7, $8)')
+                               conn.exec_prepared(result['id'], [ result['id'], result['name'],result['location']['latitude'],result['location']['longitude'],result['picture']['data']['url'], result['location']['city'], result['name'].parameterize, @location.id ])
+                            %>
+                    <%	 end %>
+                    <% unless result.nil? %>
+                        <% micrositio = Micrositio.where(uid: result['id']).take %>
+                        <div id="rowinfo"  class="row border" style="margin-bottom: 10px; height: 220px" >
+                          <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-md-12" style="margin-left: -25px; margin-top: 5px">
+                              <%	 unless result['picture'].nil?  %>
+                                  <div class="img-responsive">
+                                    <%= link_to(image_tag(result['picture']['data']['url'], style: "width: 130px;  max-height: 160px"), micrositio) %>
+                                  </div>
+                              <%	end  %>
+                            </div>
+                          </div>
+                          <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0 !important;">
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 20px !important; margin-top: 10px; text-align: left ">
+                              <h4>   <%=	 link_to micrositio.name.first(20) , micrositio, style: "color: black !important;" %> </h4>
+                              <hr style="margin-top: -8px; margin-bottom: -0px">
+                            </div>
+                            <%	 if signed_in?  %>
+                            <%	 else  %>
+                                <div id="rowinfoshow" style="visibility: hidden; height: 0px; text-align: center">
+                                  <h4> Registrate para ver a donde han ido tus amigos</h4>
+                                  <div style="margin-top: 20px" >
+                                    <i class="icon-facebook-sign"></i>  <%= link_to "Ingresa con Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+                                  </div>
+                                </div>
+                            <%	 end  %>
+
+
+                            <div id="rowinfoname">
+
+                              <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
+                                <p>   <%= result['likes']  %> likes</p>
                               </div>
-                          <%	end  %>
-                        </div>
-                      </div>
-                      <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0 !important;">
-                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 20px !important; margin-top: 10px; text-align: left ">
-                          <h4>   <%=	 link_to micrositio.name.first(20) , micrositio, style: "color: black !important;" %> </h4>
-                          <hr style="margin-top: -8px; margin-bottom: -0px">
-                        </div>
-                        <%	 if signed_in?  %>
-                        <%	 else  %>
-                            <div id="rowinfoshow" style="visibility: hidden; height: 0px; text-align: center">
-                              <h4> Registrate para ver a donde han ido tus amigos</h4>
-                              <div style="margin-top: 20px" >
-                                <i class="icon-facebook-sign"></i>  <%= link_to "Ingresa con Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+                              <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: right">
+                                <p>   distance:
+                                  <%
+                                     lat1 = lat
+                                     lon1 = lng
+                                     lat2 = result['location']['latitude']
+                                     lon2 = result['location']['longitude']
+                                     r = 6371
+                                     pi = 3.1416
+                                     alpha1 = (lat1 * pi).to_f / 180.0
+                                     alpha2 = (lat2 * pi).to_f / 180.0
+                                     deltaa = (lat2.to_f-lat1.to_f) * pi / 180.0
+                                     deltag = (lon2.to_f-lon1.to_f) * pi / 180.0
+                                     a = Math.sin(deltaa.to_f/2.0) * Math.sinh(deltaa.to_f/2.0) +
+                                             Math.cos(alpha1) * Math.cos(alpha2) *
+                                                     Math.sin(deltag/2) * Math.sin(deltag/2)
+                                     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+                                     d = r * c
+                                     f = d.round(2)
+                                  %>
+                                  <%=	 f %>       Km
+                                </p>
+                              </div>
+
+                              <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: left">
+                                <p> <%= number_with_delimiter(result['checkins']) %> peple have been here </p>
+                              </div>
+
+                              <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
+                                <p style="font-size: 10px"><%= result['location']['city'] %></p>
+                              </div>
+
+
+                              <div class="col-md-8 col-sm-12 col-xs-12" style="text-align: left">
+                                <p> Type of music: </p>
+                              </div>
+
+                              <div class="col-md-8 " style=" text-align: left">
+                                <p>   Friends attending today:</p>
                               </div>
                             </div>
-                        <%	 end  %>
-
-
-                        <div id="rowinfoname">
-
-                          <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
-                            <p>   <%= result['likes']  %> likes</p>
-                          </div>
-                          <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: right">
-                            <p>   distance:
-                              <%
-                                 lat1 = lat
-                                 lon1 = lng
-                                 lat2 = result['location']['latitude']
-                                 lon2 = result['location']['longitude']
-                                 r = 6371
-                                 pi = 3.1416
-                                 alpha1 = (lat1 * pi).to_f / 180.0
-                                 alpha2 = (lat2 * pi).to_f / 180.0
-                                 deltaa = (lat2.to_f-lat1.to_f) * pi / 180.0
-                                 deltag = (lon2.to_f-lon1.to_f) * pi / 180.0
-                                 a = Math.sin(deltaa.to_f/2.0) * Math.sinh(deltaa.to_f/2.0) +
-                                         Math.cos(alpha1) * Math.cos(alpha2) *
-                                                 Math.sin(deltag/2) * Math.sin(deltag/2)
-                                 c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-                                 d = r * c
-                                 f = d.round(2)
-                              %>
-                              <%=	 f %>       Km
-                            </p>
-                          </div>
-
-                          <div class="col-md-7 col-sm-7 col-xs-7" style="text-align: left">
-                            <p> <%= number_with_delimiter(result['checkins']) %> peple have been here </p>
-                          </div>
-
-                          <div class="col-md-5 col-sm-5 col-xs-5" style="text-align: left">
-                            <p style="font-size: 10px"><%= result['location']['city'] %></p>
-                          </div>
-
-
-                          <div class="col-md-8 col-sm-12 col-xs-12" style="text-align: left">
-                            <p> Type of music: </p>
-                          </div>
-
-                          <div class="col-md-8 " style=" text-align: left">
-                            <p>   Friends attending today:</p>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                <%	 end %>
-          <%	 end %>
-          </div>
+                    <%	 end %>
+              <%	 end %>
+              </div>
 
-          <script>
-              $(document).ready(function () {
-                  var myLatlng = new google.maps.LatLng(<%= lat  %>,<%= lng %>);
-                  var centerlat = new google.maps.LatLng(<%= lat  %>,<%= centerlng %>);
-                  var mapOptions = {
-                      zoom: 13,
-                      center: centerlat,
-                      scrollwheel: false,
-                      navigationControl: false,
-                      mapTypeControl: false,
-                      scaleControl: false,
-                      mapTypeControl: false,
-                      panControl: false,
-                      rotateControl: false,
-                      scaleControl: false,
-                      streetViewControl: false,
-                      zoomControl: false,
-                      tilt: 45
-                  }
-                  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+              <script>
+                  $(document).ready(function () {
+                      var myLatlng = new google.maps.LatLng(<%= lat  %>,<%= lng %>);
+                      var centerlat = new google.maps.LatLng(<%= lat  %>,<%= centerlng %>);
+                      var mapOptions = {
+                          zoom: 13,
+                          center: centerlat,
+                          scrollwheel: false,
+                          navigationControl: false,
+                          mapTypeControl: false,
+                          scaleControl: false,
+                          mapTypeControl: false,
+                          panControl: false,
+                          rotateControl: false,
+                          scaleControl: false,
+                          streetViewControl: false,
+                          zoomControl: false,
+                          tilt: 45
+                      }
+                      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-                  <% i = 0 %>
-                  var locations = [
-                      <% fbplace['data'].each do |result| %>
-                      ['<%= result['name'] %>', <%= result['location']['latitude']  %>,<%= result['location']['longitude'] %>, <%= i = i + 1 %>],
-                      <%	 end %>
-                  ];
-                  var infowindow = new google.maps.InfoWindow();
-                  var marker, i;
-                  for (i = 0; i < locations.length; i++) {
-                      marker = new google.maps.Marker({
-                          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                          map: map
-                      });
+                      <% i = 0 %>
+                      var locations = [
+                          <% fbplace['data'].each do |result| %>
+                          ['<%= result['name'] %>', <%= result['location']['latitude']  %>,<%= result['location']['longitude'] %>, <%= i = i + 1 %>],
+                          <%	 end %>
+                      ];
+                      var infowindow = new google.maps.InfoWindow();
+                      var marker, i;
+                      for (i = 0; i < locations.length; i++) {
+                          marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                              map: map
+                          });
 
-                      google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-                          return function() {
-                              infowindow.setContent(locations[i][0]);
-                              infowindow.open(map, marker);
-                          }
-                      })(marker, i));
+                          google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                              return function() {
+                                  infowindow.setContent(locations[i][0]);
+                                  infowindow.open(map, marker);
+                              }
+                          })(marker, i));
 
-                      google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
-                          return function() {
-                              infowindow.close();
-                          }
-                      })(marker, i));
-                  }
-              });
-          </script>
+                          google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+                              return function() {
+                                  infowindow.close();
+                              }
+                          })(marker, i));
+                      }
+                  });
+              </script>
 
-      <%	end %>
-  <% end %>
-</div>
+          <%	end %>
+      <% end %>
+    </div>
+
+<% else %>
+
+
+<% end %>

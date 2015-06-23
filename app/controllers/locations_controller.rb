@@ -15,6 +15,10 @@ class LocationsController < ApplicationController
     @micrositios = Micrositio.all
     @actividades = Actividad.all
 
+    unless signed_in?
+      redirect_to root_path
+    end
+
   end
 
   # GET /locations/new
