@@ -40,6 +40,11 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user
+      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+        user.oauth_token = auth.credentials.token
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
+        user.save!
+      end
     else
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
