@@ -1,4 +1,9 @@
+<div class="hidden-xs" id="googlemaps">
+  <div id="map-canvas"></div>
+</div>
+
 <div class="container" style="margin-top: 20px">
+
 
 
 <%	 if signed_in? %>
@@ -29,7 +34,8 @@
 
 
     <%	place = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{@micrositio.uid}?fields=picture.width(250),photos,likes,hours,name,posts,location,were_here_count,talking_about_count,description&access_token=#{current_user.oauth_token}").read) %>
-    <div class="col-md-12 col-sm-12 col-xs-12 border" style="margin: 0px 0px 20px 0px" >
+
+    <div class="col-md-6 col-sm-6 col-xs-6 border" style="margin: 20px 0px 20px 0px" >
       <div class="row" style="margin-bottom: 10px; padding-top: 20px" >
         <div class="col-md-5 col-xs-12">
           <div class="img-responsive">
@@ -236,5 +242,54 @@
 <% end %>
 
 
+
+  <script>
+      $(document).ready(function () {
+          var myLatlng = new google.maps.LatLng(<%= @micrositio.lat  %>,<%= @micrositio.lng %>);
+          var centerlat = new google.maps.LatLng(<%= @micrositio.lat.to_d - 0.02  %>,<%=   @micrositio.lng.to_d - 0.05 %>);
+          var mapOptions = {
+              zoom: 13,
+              center: centerlat,
+              scrollwheel: false,
+              navigationControl: false,
+              mapTypeControl: false,
+              scaleControl: false,
+              mapTypeControl: false,
+              panControl: false,
+              rotateControl: false,
+              scaleControl: false,
+              streetViewControl: false,
+              zoomControl: false,
+              tilt: 45
+          }
+          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+          <% i = 0 %>
+          var locations = [
+              ['<%= @micrositio.name %>', <%= @micrositio.lat  %>,<%= @micrositio.lng %>, <%= i = i + 1 %>],
+          ];
+          var infowindow = new google.maps.InfoWindow();
+          var marker, i;
+          for (i = 0; i < locations.length; i++) {
+              marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                  map: map
+              });
+
+              google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                  return function() {
+                      infowindow.setContent(locations[i][0]);
+                      infowindow.open(map, marker);
+                  }
+              })(marker, i));
+
+              google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+                  return function() {
+                      infowindow.close();
+                  }
+              })(marker, i));
+          }
+      });
+  </script>
 
 </div>

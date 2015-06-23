@@ -31,6 +31,7 @@
           <%= @location.actividad.name %>
           <% centerlng = lng - 0.01 %>
 
+
           <% fbplace = ActiveSupport::JSON.decode(open("https://graph.facebook.com/search?q=#{@location.actividad.name}&fields=cover,checkins,name,location,likes,category_list,picture.width(600)&type=place&center=#{lat},#{lng}&distance=50000&access_token=#{current_user.oauth_token}&limit=40").read) %>
           <div class="col-md-12" >
             <% fbplace['data'].each do |result| %>
@@ -117,7 +118,7 @@
                       </div>
                     </div>
                 <%	 end %>
-            <%	 end %>
+          <%	 end %>
           </div>
 
           <script>
