@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,  :omniauthable,
          :recoverable, :rememberable, :trackable
 
-  validate :lat, presence: true
 
   has_many :reservations
   has_many :micrositios
@@ -39,12 +38,11 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
       user.uid = auth.uid
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.avatar = auth.info.image
+      user.save!
       user
-      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-        user.oauth_token = auth.credentials.token
-        user.oauth_expires_at = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
-        user.save!
-      end
     else
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
